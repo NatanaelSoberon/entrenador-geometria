@@ -43,7 +43,7 @@ button{cursor:pointer}
 
 header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
 .top-row{display:flex;align-items:center;gap:14px;padding-block:12px;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:10px;min-width:0;flex:1}
+.brand{display:flex;align-items:center;gap:10px;min-width:0;flex:1 1 240px}
 .brand svg{flex:none}
 .brand h1{font-size:1.25rem;font-weight:800;letter-spacing:-.01em}
 .brand small{display:block;font:500 .8rem var(--f-body);color:var(--muted)}
@@ -129,16 +129,62 @@ main{padding-block:24px 64px}
 .plist .st.on{background:var(--ok);border-color:var(--ok)}
 
 /* glosario */
-.gl-tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.gl-tools input{padding:9px 12px;border:2px solid var(--line);border-radius:10px;background:var(--surface);min-width:0;flex:1 1 220px}
-.gloss{columns:2 340px;column-gap:20px}
-.term{break-inside:avoid;margin:0 0 16px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.gl-tools{display:flex;flex-direction:column;gap:12px;margin-bottom:6px}
+.gl-tools input{padding:10px 14px;border:2px solid var(--line);border-radius:10px;background:var(--surface);min-width:0;width:100%;max-width:520px}
+.gchips{display:flex;gap:6px;flex-wrap:wrap}
+.gchips button{border:2px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 12px;font-weight:700;font-size:.88rem;color:var(--muted)}
+.gchips button[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.gcat{margin-top:26px}
+.gcat-h{font-size:1.35rem;margin-bottom:12px;display:flex;align-items:baseline;gap:10px}
+.gcat-h small{font:700 .8rem var(--f-body);color:var(--muted)}
+.gcat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr));gap:16px;align-items:start}
+.term{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:12px;min-width:0;scroll-margin-top:140px}
 .term.flash{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
-.term h3{font-size:1.1rem}
+.term h3{font-size:1.2rem}
+.term p,.term ul{margin:0}
 .term .cat{font:700 .7rem var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.term p{margin:6px 0 0}
-.term .formula{display:inline-block;margin-top:8px;padding:4px 10px;border-radius:8px;background:var(--accent-soft);color:var(--accent);font-weight:700}
-.term .use{color:var(--muted);font-size:.95rem}
+.term .figbox{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:8px}
+.term .def{font-size:1.02rem;max-width:62ch}
+.term .lbl{display:block;font:700 .7rem var(--f-body);letter-spacing:.08em;text-transform:uppercase;margin-bottom:2px}
+.term .imag{border-left:3px solid var(--ok);padding:2px 0 2px 12px}
+.term .imag .lbl{color:var(--ok)}
+.term .props .lbl{color:var(--accent)}
+.term .props ul{padding-left:20px;display:flex;flex-direction:column;gap:4px}
+.term .formula{align-self:flex-start;padding:6px 12px;border-radius:8px;background:var(--accent-soft);color:var(--accent);font-weight:700;font-variant-numeric:tabular-nums}
+.term .ej{background:var(--paper);border-radius:10px;padding:10px 12px}
+.term .ej .lbl{color:var(--muted)}
+.term .use .lbl{color:var(--ink)}
+.term .ojo{border-left:3px solid var(--point);padding:2px 0 2px 12px}
+.term .ojo .lbl{color:var(--point)}
+.gfig{width:100%;max-width:380px;height:auto;display:block;margin:0 auto}
+.gfig .s{fill:none;stroke:var(--ink);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.gfig .f{fill:var(--accent-soft);stroke:var(--ink);stroke-width:2;stroke-linejoin:round}
+.gfig .fa2,.gfig .fa3{fill:var(--accent-soft);stroke:var(--ink);stroke-width:2;stroke-linejoin:round}
+.gfig .fg2,.gfig .fg3{fill:var(--ok-soft);stroke:var(--ink);stroke-width:2;stroke-linejoin:round}
+.gfig .fa{fill:var(--accent-soft);stroke:none}.gfig .fg{fill:var(--ok-soft);stroke:none}.gfig .fp{fill:var(--point-soft);stroke:none}
+.gfig .fpd{fill:var(--point-soft);stroke:var(--point);stroke-width:1.6;stroke-dasharray:4 3}
+.gfig .sqa{fill:var(--accent-soft);stroke:var(--accent);stroke-width:2}.gfig .sqg{fill:var(--ok-soft);stroke:var(--ok);stroke-width:2}.gfig .sqp{fill:var(--point-soft);stroke:var(--point);stroke-width:2}
+.gfig .gl{stroke:var(--muted);stroke-width:.8;opacity:.55}
+.gfig .a{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linecap:round}
+.gfig .g{fill:none;stroke:var(--ok);stroke-width:2.6;stroke-linecap:round}
+.gfig .p{fill:none;stroke:var(--point);stroke-width:2.6;stroke-linecap:round}
+.gfig .pthick{fill:none;stroke:var(--point);stroke-width:5;stroke-linecap:round}
+.gfig .d,.gfig .d2{fill:none;stroke:var(--muted);stroke-width:1.6;stroke-dasharray:5 4}
+.gfig .pd{fill:none;stroke:var(--point);stroke-width:2.2;stroke-dasharray:5 4}
+.gfig .ad{fill:none;stroke:var(--accent);stroke-width:2.2;stroke-dasharray:6 4}
+.gfig .cg{fill:none;stroke:var(--muted);stroke-width:1.5}
+.gfig .ch{fill:none;stroke:var(--ink);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.gfig .tk{stroke:var(--point);stroke-width:2}
+.gfig .ra{fill:none;stroke:var(--ink);stroke-width:1.4}
+.gfig .ang{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.8}
+.gfig .angg{fill:var(--ok-soft);stroke:var(--ok);stroke-width:1.8}
+.gfig .angp{fill:var(--point-soft);stroke:var(--point);stroke-width:1.8}
+.gfig .dot{fill:var(--point)}.gfig .dota{fill:var(--accent)}.gfig .dotg{fill:var(--ok)}.gfig .doti{fill:var(--ink)}
+.gfig text{fill:var(--ink);font:700 12.5px var(--f-body)}
+.gfig .tm{fill:var(--muted);font-weight:400;font-size:11.5px}
+.gfig .ta{fill:var(--accent)}.gfig .tp{fill:var(--point)}.gfig .tg{fill:var(--ok)}
+.gfig .sm{font-size:11px}
+#hoy-concept .figbox{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:6px;margin:8px 0}
 
 /* estrategias */
 .phases{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
@@ -165,6 +211,21 @@ main{padding-block:24px 64px}
 .steps li.cur{background:var(--accent-soft);color:var(--ink)} .steps li.cur .k{border-color:var(--accent);color:var(--accent)}
 .steps .toolchip{display:inline-block;margin-top:4px;font-size:.78rem;font-weight:700;color:var(--accent)}
 .done-msg{background:var(--ok-soft);border-radius:12px;padding:12px 14px;color:var(--ink)}
+.cons-groups{display:flex;flex-direction:column;gap:14px;margin-bottom:16px}
+.cgrp-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin-bottom:6px}
+.cgrp .cons-pick{margin-bottom:0}
+.cons-pick button{display:inline-flex;align-items:center;gap:7px}
+.lvd{width:9px;height:9px;border-radius:50%;flex:none}.lvd.l0{background:var(--lv0)}.lvd.l1{background:var(--lv1)}.lvd.l2{background:var(--lv2)}
+.okmark{color:var(--ok)}
+.think{margin-top:10px;display:flex;flex-direction:column;gap:6px}
+.think>b{color:var(--ink)}
+.think details,.steps details{background:var(--surface);border-radius:8px;padding:6px 10px}
+.think summary,.steps summary{cursor:pointer;font-weight:700}
+.think details p,.steps details p{margin:6px 0 2px}
+.steps li.st-fragil{background:var(--warn-soft);color:var(--ink)}.steps li.st-fragil .k{border-color:var(--warn);color:var(--warn)}
+.steps li.hints-li{color:var(--ink)}
+.steps li.reto{color:var(--ink);align-items:flex-start}
+.steps li.reto details{margin-top:6px;background:var(--paper)}
 .done-msg b{color:var(--ok)}
 .board{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;min-width:0}
 .toolbar{display:flex;gap:2px;padding:6px;border-bottom:1px solid var(--line);overflow-x:auto}
@@ -192,6 +253,7 @@ main{padding-block:24px 64px}
 <body>
 
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><marker id="g-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" style="fill:var(--ink)"/></marker></defs></svg>
 <header class="top">
   <div class="wrap">
     <div class="top-row">
@@ -250,9 +312,9 @@ main{padding-block:24px 64px}
   <section id="v-laboratorio" data-v="laboratorio" hidden>
     <div class="view-head">
       <div><span class="eyebrow">Construcciones paso a paso</span><h2>Laboratorio estilo GeoGebra</h2>
-      <p>Las mismas herramientas que vas a encontrar en GeoGebra. Seguí los pasos de la izquierda; la herramienta que toca usar titila en la barra. Cuando termines, usá <b>Mover</b> y arrastrá los puntos azules: si la figura sigue cumpliendo la propiedad, la construcción está bien hecha.</p></div>
+      <p>Las mismas herramientas que vas a encontrar en GeoGebra. En las <b>construcciones guiadas</b>, la herramienta que toca usar titila en la barra. En los <b>desafíos</b> no hay pasos: pensás vos la estrategia. En el <b>taller creativo</b>, inventás. Al terminar, usá <b>Mover</b> y arrastrá los puntos azules: si la figura sigue cumpliendo la propiedad, está bien construida.</p></div>
     </div>
-    <div class="cons-pick" id="cons-pick"></div>
+    <div class="cons-groups" id="cons-pick"></div>
     <div class="lab">
       <div class="guide">
         <div class="panel qcc" id="qcc"></div>
@@ -281,9 +343,9 @@ main{padding-block:24px 64px}
   <section id="v-glosario" data-v="glosario" hidden>
     <div class="view-head">
       <div><span class="eyebrow">Definiciones y propiedades</span><h2>Glosario</h2>
-      <p>Lo que hay que saber de memoria y, sobre todo, para qué sirve cada cosa.</p></div>
+      <p>Cada concepto con su dibujo, una forma de imaginarlo, sus propiedades, un ejemplo, para qué te sirve en el torneo y el error que más se comete. Tocá el nombre de un tema para ver solo esa parte.</p></div>
     </div>
-    <div class="gl-tools" style="margin-bottom:16px"><input id="gl-search" type="search" placeholder="Buscar: bisectriz, área, paralelas…" aria-label="Buscar en el glosario"></div>
+    <div class="gl-tools"><input id="gl-search" type="search" placeholder="Buscar: bisectriz, área, paralelas…" aria-label="Buscar en el glosario"><div class="gchips" id="gchips" role="group" aria-label="Temas"></div></div>
     <div class="gloss" id="gloss"></div>
   </section>
 
@@ -416,37 +478,469 @@ const PROBS=[
  que:'El ángulo en el vértice del arco es recto (ángulo inscrito en una semicircunferencia). La hipotenusa es el diámetro: 6 cm.',como:'Área de dos maneras: 6 × 2 : 2 = 6, así que los catetos cumplen a × b = 12. Por Pitágoras, a² + b² = 36. Para hallar a + b sin calcular cada cateto, usá (a + b)² = a² + 2ab + b².',sol:'(a + b)² = 36 + 2 × 12 = 60, entonces a + b = √60 ≈ 7,75. Perímetro ≈ 6 + 7,75 = 13,75 cm (el valor exacto es 6 + 2√15).',cuando:'Si te piden a + b y conocés a × b y a² + b², elevá la suma al cuadrado.',c:['inscrito','pitagoras','area-dos-maneras']}
 ];
 
+/* ---------- Ayudantes de dibujo para el glosario ---------- */
+const GR=(()=>{
+  const R=v=>Math.round(v*10)/10, rad=d=>d*Math.PI/180;
+  const pt=(cx,cy,r,a)=>[R(cx+r*Math.cos(rad(a))),R(cy-r*Math.sin(rad(a)))];
+  const svg=(inner,h=160)=>`<svg class="gfig" viewBox="0 0 240 ${h}" role="img" aria-hidden="true">${inner}</svg>`;
+  const L=(x1,y1,x2,y2,c='s',x='')=>`<line class="${c}" x1="${R(x1)}" y1="${R(y1)}" x2="${R(x2)}" y2="${R(y2)}"${x}/>`;
+  const Pg=(ps,c='f')=>`<polygon class="${c}" points="${ps.map(p=>R(p[0])+','+R(p[1])).join(' ')}"/>`;
+  const C=(x,y,r,c='s')=>`<circle class="${c}" cx="${R(x)}" cy="${R(y)}" r="${R(r)}"/>`;
+  const P=(x,y,c='dot',r=3.5)=>`<circle class="${c}" cx="${R(x)}" cy="${R(y)}" r="${r}"/>`;
+  const T=(x,y,t,c='',a='middle')=>`<text class="${c}" x="${R(x)}" y="${R(y)}" text-anchor="${a}" dy=".35em">${t}</text>`;
+  const A=(cx,cy,r,a1,a2,c='ang')=>{const p1=pt(cx,cy,r,a1),p2=pt(cx,cy,r,a2),lg=(a2-a1)>180?1:0;return `<path class="${c}" d="M${R(cx)} ${R(cy)} L${p1} A${r} ${r} 0 ${lg} 0 ${p2} Z"/>`;};
+  const Arc=(cx,cy,r,a1,a2,c='p')=>{const p1=pt(cx,cy,r,a1),p2=pt(cx,cy,r,a2),lg=(a2-a1)>180?1:0;return `<path class="${c}" d="M${p1} A${r} ${r} 0 ${lg} 0 ${p2}"/>`;};
+  const dir=(v,p)=>(Math.atan2(v[1]-p[1],p[0]-v[0])*180/Math.PI+360)%360;
+  const span=(v,p,q)=>{let a=dir(v,p),b=dir(v,q),d=(b-a+360)%360;if(d>180){a=b;d=360-d;}return[a,d];};
+  const arcV=(v,p,q,r,c='ang')=>{const[a,d]=span(v,p,q);return A(v[0],v[1],r,a,a+d,c);};
+  const labV=(v,p,q,r,t,c='')=>{const[a,d]=span(v,p,q);const m=pt(v[0],v[1],r,a+d/2);return T(m[0],m[1],t,c);};
+  const RA=(v,p,q,s=9)=>{const u=(w)=>{const dx=w[0]-v[0],dy=w[1]-v[1],n=Math.hypot(dx,dy);return[dx/n*s,dy/n*s];};const a=u(p),b=u(q);
+    return `<polyline class="ra" points="${R(v[0]+a[0])},${R(v[1]+a[1])} ${R(v[0]+a[0]+b[0])},${R(v[1]+a[1]+b[1])} ${R(v[0]+b[0])},${R(v[1]+b[1])}"/>`;};
+  const tick=(p,q,n=1)=>{const mx=(p[0]+q[0])/2,my=(p[1]+q[1])/2,dx=q[0]-p[0],dy=q[1]-p[1],l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l,nx=-uy,ny=ux;let s='';
+    for(let i=0;i<n;i++){const o=(i-(n-1)/2)*4.5;s+=L(mx+ux*o-nx*6,my+uy*o-ny*6,mx+ux*o+nx*6,my+uy*o+ny*6,'tk');}return s;};
+  const grid=(p0,u,v,n,m=n)=>{let s='';for(let i=1;i<n;i++)s+=L(p0[0]+i*u[0],p0[1]+i*u[1],p0[0]+i*u[0]+m*v[0],p0[1]+i*u[1]+m*v[1],'gl');
+    for(let j=1;j<m;j++)s+=L(p0[0]+j*v[0],p0[1]+j*v[1],p0[0]+j*v[0]+n*u[0],p0[1]+j*v[1]+n*u[1],'gl');return s;};
+  const foot=(p,a,b)=>{const dx=b[0]-a[0],dy=b[1]-a[1],t=((p[0]-a[0])*dx+(p[1]-a[1])*dy)/(dx*dx+dy*dy);return[a[0]+t*dx,a[1]+t*dy];};
+  const mid=(p,q)=>[(p[0]+q[0])/2,(p[1]+q[1])/2];
+  const reg=(cx,cy,r,n,a0=90)=>Array.from({length:n},(_,k)=>pt(cx,cy,r,a0+360*k/n));
+  const AR=' marker-end="url(#g-arr)"', AR2=' marker-start="url(#g-arr)" marker-end="url(#g-arr)"';
+  return{svg,L,Pg,C,P,T,A,Arc,arcV,labV,RA,tick,grid,foot,mid,reg,pt,AR,AR2};
+})();
+
+const FIG={
+basicos(){const{svg,L,P,T,AR,AR2}=GR;return svg(
+  L(18,28,222,28,'s',AR2)+P(80,28,'doti')+P(160,28,'doti')+T(80,16,'A')+T(160,16,'B')+T(120,44,'recta AB (no termina)','tm')+
+  L(30,80,222,80,'s',AR)+P(30,80)+T(30,68,'O')+T(126,96,'semirrecta de origen O','tm')+
+  L(30,132,150,132,'a')+P(30,132,'dota')+P(150,132,'dota')+T(30,120,'C')+T(150,120,'D')+T(90,148,'segmento CD (se mide)','tm')+
+  P(205,132)+T(214,132,'P','','start'));},
+'rectas-posiciones'(){const{svg,L,T,RA}=GR;return svg(
+  L(12,52,108,32,'s')+L(12,96,108,76,'s')+T(116,32,'r','','start')+T(116,76,'s','','start')+
+  `<path class="ch" d="M56 38 l7 3 l-7 4 M56 82 l7 3 l-7 4"/>`+T(60,124,'r ∥ s','ta')+T(60,142,'nunca se cortan','tm')+
+  L(138,100,232,100,'s')+L(182,18,182,132,'s')+RA([182,100],[232,100],[182,18],11)+T(228,88,'r')+T(192,22,'s','','start')+T(185,148,'r ⊥ s (90°)','tm'));},
+'clas-angulos'(){const{svg,L,T,A,RA,pt}=GR;const ray=(v,a,l)=>{const p=pt(v[0],v[1],l,a);return L(v[0],v[1],p[0],p[1],'s');};return svg(
+  A(22,62,24,0,40,'ang')+ray([22,62],0,72)+ray([22,62],40,72)+T(58,78,'agudo · 40°','tm')+
+  RA([140,62],[200,62],[140,10],12)+ray([140,62],0,66)+ray([140,62],90,54)+T(176,78,'recto · 90°','tm')+
+  A(72,132,20,0,130,'angg')+ray([72,132],0,60)+ray([72,132],130,56)+T(78,150,'obtuso · 130°','tm')+
+  A(186,132,18,0,180,'angp')+ray([186,132],0,46)+ray([186,132],180,46)+T(186,150,'llano · 180°','tm'),160);},
+'angulos-pares'(){const{svg,L,T,A,pt}=GR;const c=[120,80];const l=(a,r)=>{const p=pt(120,80,r,a),q=pt(120,80,r,a+180);return L(p[0],p[1],q[0],q[1],'s');};
+  const lab=(a,t,cl)=>{const p=pt(120,80,42,a);return T(p[0],p[1],t,cl);};return svg(
+  A(120,80,24,15,85,'ang')+A(120,80,24,195,265,'ang')+A(120,80,19,85,195,'angg')+A(120,80,19,265,375,'angg')+l(15,104)+l(85,76)+
+  lab(50,'70°','ta')+lab(230,'70°','ta')+lab(140,'110°','tg')+lab(320,'110°','tg')+
+  T(36,18,'opuestos:','tm','start')+T(36,34,'iguales','ta','start')+T(170,140,'vecinos:','tm','start')+T(170,154,'suman 180°','tg','start'),162);},
+paralelas(){const{svg,L,T,A}=GR;const lo=[95.93,115],up=[144.07,50],t=53.47;return svg(
+  L(10,50,230,50)+L(10,115,230,115)+L(70,150,170,15,'s')+
+  A(lo[0],lo[1],22,0,t,'ang')+A(up[0],up[1],22,180,180+t,'ang')+A(up[0],up[1],17,180+t,360,'angg')+
+  T(126,101,'α','ta')+T(114,64,'α','ta')+T(171,66,'β','tg')+
+  T(20,40,'r','','start')+T(20,105,'s','','start')+
+  T(120,166,'alternos: α = α  ·  conjugados: α + β = 180°','tm sm'),174);},
+'clas-triangulos'(){const{svg,Pg,T,tick,RA}=GR;const e=[[15,72],[75,72],[45,20]],i=[[95,72],[145,72],[120,14]],s=[[165,72],[232,72],[186,28]];
+  const a=[[15,146],[75,146],[52,102]],r=[[95,146],[152,146],[95,102]],o=[[167,146],[232,146],[150,112]];return svg(
+  Pg(e)+tick(e[0],e[1])+tick(e[1],e[2])+tick(e[2],e[0])+T(45,88,'equilátero','tm')+
+  Pg(i)+tick(i[0],i[2])+tick(i[1],i[2])+T(120,88,'isósceles','tm')+
+  Pg(s)+T(198,88,'escaleno','tm')+
+  Pg(a,'fg2')+T(45,162,'acutángulo','tm')+
+  Pg(r,'fg2')+RA(r[0],r[1],r[2],10)+T(122,162,'rectángulo','tm')+
+  Pg(o,'fg2')+T(198,162,'obtusángulo','tm'),170);},
+'suma-triangulo'(){const{svg,L,Pg,T,arcV,labV,A}=GR;const a=[30,140],b=[200,140],c=[120,40];return svg(
+  L(10,40,230,40,'d')+Pg([a,b,c])+
+  arcV(a,b,c,22,'ang')+arcV(b,c,a,22,'angg')+arcV(c,a,b,20,'angp')+
+  A(120,40,22,180,228.01,'ang')+A(120,40,22,308.66,360,'angg')+
+  labV(a,b,c,34,'α','ta')+labV(b,c,a,34,'β','tg')+labV(c,a,b,32,'γ','tp')+
+  T(88,52,'α','ta')+T(152,52,'β','tg')+T(120,26,'α + γ + β = llano','tm'));},
+'angulo-exterior'(){const{svg,L,Pg,T,arcV,labV}=GR;const a=[30,130],b=[150,130],c=[90,40],e=[225,130];return svg(
+  Pg([a,b,c])+L(150,130,225,130,'d')+arcV(a,b,c,20,'ang')+arcV(c,a,b,20,'angp')+arcV(b,e,c,20,'angg')+
+  labV(a,b,c,32,'α','ta')+labV(c,a,b,32,'γ','tp')+labV(b,e,c,32,'ext','tg')+T(120,152,'ext = α + γ','tm'));},
+isosceles(){const{svg,L,Pg,T,arcV,tick,RA}=GR;const a=[50,140],b=[190,140],c=[120,25];return svg(
+  Pg([a,b,c])+tick(a,c)+tick(b,c)+arcV(a,b,c,22,'ang')+arcV(b,c,a,22,'ang')+L(120,25,120,140,'d')+RA([120,140],b,c,9)+
+  T(205,30,'eje de','tm')+T(205,44,'simetría','tm')+T(56,118,'β','ta')+T(184,118,'β','ta'),156);},
+pitagoras(){const{svg,Pg,T,grid,RA}=GR;const r=[70,100],b=[118,100],a=[70,64];return svg(
+  Pg([[70,100],[118,100],[118,148],[70,148]],'sqg')+grid([70,100],[12,0],[0,12],4)+
+  Pg([[34,64],[70,64],[70,100],[34,100]],'sqa')+grid([34,64],[12,0],[0,12],3)+
+  Pg([a,b,[154,52],[106,16]],'sqp')+grid(a,[9.6,7.2],[7.2,-9.6],5)+
+  Pg([r,b,a])+RA(r,b,a,8)+T(52,82,'9','ta')+T(94,124,'16','tg')+T(112,58,'25','tp')+
+  T(196,100,'9 + 16 = 25','')+T(196,120,'3² + 4² = 5²','tm'),158);},
+congruencia(){const{svg,Pg,T,tick}=GR;const p=[[20,128],[100,128],[45,48]],q=[[220,128],[140,128],[195,48]];return svg(
+  Pg(p)+Pg(q,'fg2')+tick(p[0],p[1],1)+tick(p[0],p[2],2)+tick(p[1],p[2],3)+tick(q[0],q[1],1)+tick(q[0],q[2],2)+tick(q[1],q[2],3)+
+  T(120,90,'=','ta')+T(120,150,'LLL: los tres lados iguales','tm'));},
+'base-media'(){const{svg,L,Pg,T,P,tick}=GR;const a=[120,18],b=[30,138],c=[210,138],m=[75,78],n=[165,78],k=[120,138];return svg(
+  Pg([a,b,c])+L(m[0],m[1],k[0],k[1],'d')+L(n[0],n[1],k[0],k[1],'d')+L(m[0],m[1],n[0],n[1],'a')+
+  tick(a,m)+tick(m,b)+tick(a,n,2)+tick(n,c,2)+P(m[0],m[1],'dota')+P(n[0],n[1],'dota')+
+  T(62,72,'M')+T(178,72,'N')+T(120,10,'A')+T(22,146,'B')+T(218,146,'C')+T(120,68,'MN','ta')+T(120,154,'MN ∥ BC  y  MN = BC : 2','tm'),162);},
+poligonos(){const{svg,Pg,T,A,reg}=GR;return svg(
+  Pg(reg(62,76,48,5))+T(62,148,'convexo','tm')+
+  Pg([[150,30],[228,76],[150,122],[178,76]],'d2')+Pg([[150,30],[228,76],[150,122],[178,76]])+A(178,76,13,238,482,'angp')+
+  T(188,148,'cóncavo','tm')+T(188,134,'un ángulo > 180°','tp sm'));},
+cuadrilateros(){const{svg,Pg,T,tick,RA}=GR;return svg(
+  Pg([[10,62],[70,62],[56,28],[24,28]])+`<path class="ch" d="M36 24 l6 4 l-6 4 M37 58 l6 4 l-6 4"/>`+T(40,78,'trapecio','tm')+
+  Pg([[90,62],[140,62],[152,28],[102,28]])+T(121,78,'paralelogramo','tm')+
+  Pg([[170,62],[230,62],[230,26],[170,26]])+RA([170,62],[230,62],[170,26],8)+T(200,78,'rectángulo','tm')+
+  Pg([[40,94],[64,120],[40,146],[16,120]],'fg2')+tick([40,94],[64,120])+tick([64,120],[40,146])+tick([40,146],[16,120])+tick([16,120],[40,94])+T(40,160,'rombo','tm')+
+  Pg([[99,98],[143,98],[143,142],[99,142]],'fg2')+RA([99,142],[143,142],[99,98],8)+T(121,160,'cuadrado','tm')+
+  Pg([[200,94],[222,110],[200,148],[178,110]],'fg2')+tick([200,94],[222,110])+tick([200,94],[178,110])+tick([222,110],[200,148],2)+tick([178,110],[200,148],2)+T(200,160,'romboide','tm'),168);},
+'suma-poligono'(){const{svg,Pg,T,reg}=GR;const v=reg(84,80,60,6,0);return svg(
+  Pg([v[0],v[1],v[2]],'fa')+Pg([v[0],v[2],v[3]],'fg')+Pg([v[0],v[3],v[4]],'fa')+Pg([v[0],v[4],v[5]],'fg')+
+  Pg(v,'s')+`<polyline class="s" points="${v[2]} ${v[0]} ${v[3]} ${v[0]} ${v[4]}"/>`+
+  T(116,50,'1')+T(84,58,'2')+T(84,102,'3')+T(116,110,'4')+
+  T(192,60,'6 lados')+T(192,80,'4 triángulos','ta')+T(192,100,'4 × 180° = 720°','tm'));},
+regular(){const{svg,L,Pg,C,T,P,arcV,reg}=GR;const v=reg(82,80,58,6,0);let tri='';for(let k=0;k<6;k+=2)tri+=Pg([[82,80],v[k],v[k+1]],'fa');
+  let sp='';for(const p of v)sp+=L(82,80,p[0],p[1],'d');const ext=[v[0][0]+18,v[0][1]-31.2];return svg(
+  C(82,80,58,'d')+tri+sp+Pg(v,'s')+P(82,80,'doti',2.5)+L(v[0][0],v[0][1],ext[0],ext[1],'d')+arcV(v[0],ext,v[1],14,'angp')+
+  T(192,46,'exterior:','tp sm')+T(192,62,'360° : 6 = 60°','tp sm')+T(192,88,'interior: 120°','ta sm')+T(192,112,'6 ejes de simetría','tm'));},
+diagonales(){const{svg,Pg,L,T,reg,P}=GR;const v=reg(74,82,58,5);let d='';for(let i=0;i<5;i++)for(let j=i+2;j<5;j++){if(i===0&&j===4)continue;d+=L(v[i][0],v[i][1],v[j][0],v[j][1],i===0?'p':'d');}
+  let pts='';v.forEach(p=>pts+=P(p[0],p[1],'doti',2.5));return svg(
+  Pg(v,'f')+d+pts+T(188,56,'desde un vértice:','tm')+T(188,72,'5 − 3 = 2','tp')+T(188,98,'en total:','tm')+T(188,114,'5 × 2 : 2 = 5','ta'),156);},
+circunferencia(){const{svg,L,C,T,P,Arc,pt}=GR;const o=[98,80],d1=pt(98,80,60,120),d2=pt(98,80,60,300),c1=pt(98,80,60,200),c2=pt(98,80,60,250);return svg(
+  C(98,80,60,'fa2')+Arc(98,80,60,20,70,'pthick')+L(d1[0],d1[1],d2[0],d2[1],'d')+L(98,80,158,80,'a')+L(c1[0],c1[1],c2[0],c2[1],'p')+
+  P(98,80,'doti',3)+T(90,88,'O')+T(130,72,'r','ta')+T(118,34,'d','tm')+T(36,136,'cuerda','tp')+T(160,24,'arco','tp')+
+  T(200,62,'L = 2 · π · r','ta sm')+T(200,84,'A = π · r²','tg sm')+T(200,106,'d = 2 · r','tm'),156);},
+inscrito(){const{svg,L,C,T,P,Arc,arcV,labV,pt}=GR;const o=[120,86],p=pt(120,86,62,215),q=pt(120,86,62,325),v=pt(120,86,62,98);return svg(
+  C(120,86,62,'s')+Arc(120,86,62,215,325,'pthick')+L(o[0],o[1],p[0],p[1],'g')+L(o[0],o[1],q[0],q[1],'g')+arcV(o,p,q,16,'angg')+
+  L(v[0],v[1],p[0],p[1],'a')+L(v[0],v[1],q[0],q[1],'a')+arcV(v,p,q,22,'ang')+
+  P(o[0],o[1],'doti',3)+P(v[0],v[1])+P(p[0],p[1])+P(q[0],q[1])+labV(o,p,q,28,'2α','tg')+labV(v,p,q,34,'α','ta')+
+  T(p[0]-10,p[1]+8,'P')+T(q[0]+10,q[1]+8,'Q')+T(v[0]-12,v[1]-4,'V')+T(o[0]+12,o[1]-6,'O'),156);},
+tangentes(){const{svg,L,C,T,P,RA}=GR;return svg(
+  C(60,70,38,'fa2')+L(6,108,118,108,'s')+L(60,70,60,108,'a')+RA([60,108],[118,108],[60,70],8)+P(60,70,'doti',3)+P(60,108)+
+  T(48,88,'r','ta')+T(60,130,'radio ⊥ tangente','tm')+
+  C(152,70,30,'fa2')+C(207,70,25,'fg3')+L(152,70,207,70,'d')+P(152,70,'doti',3)+P(207,70,'doti',3)+P(182,70)+
+  T(166,62,'R','ta')+T(195,62,'r','tg')+T(180,130,'d = R + r','tm'),148);},
+mediatriz(){const{svg,L,T,P,RA,tick}=GR;const a=[50,118],b=[190,118],m=[120,118],p=[120,40];return svg(
+  L(50,118,190,118,'s')+L(120,8,120,152,'a')+RA(m,b,p,9)+tick(a,m)+tick(m,b)+L(p[0],p[1],a[0],a[1],'d')+L(p[0],p[1],b[0],b[1],'d')+
+  tick(p,a,2)+tick(p,b,2)+P(a[0],a[1],'doti')+P(b[0],b[1],'doti')+P(m[0],m[1])+P(p[0],p[1])+
+  T(40,128,'A')+T(200,128,'B')+T(130,132,'M','','start')+T(130,36,'P','','start')+T(178,18,'mediatriz','ta')+T(56,30,'PA = PB','tm'),160);},
+bisectriz(){const{svg,L,T,P,RA,tick,arcV}=GR;const v=[28,132],r1=[226,132],r2=[90,24.6],b=[205,30],p=[132,72],f1=[132,132],f2=[80,42];return svg(
+  L(v[0],v[1],r1[0],r1[1],'s')+L(v[0],v[1],r2[0],r2[1],'s')+L(v[0],v[1],b[0],b[1],'a')+
+  arcV(v,r1,p,30,'ang')+arcV(v,p,r2,30,'angg')+L(p[0],p[1],f1[0],f1[1],'d')+L(p[0],p[1],f2[0],f2[1],'d')+
+  RA(f1,v,p,8)+RA(f2,v,p,8)+tick(p,f1)+tick(p,f2)+P(p[0],p[1])+T(140,66,'P','','start')+
+  T(64,122,'30°','ta')+T(56,104,'30°','tg')+T(208,22,'bisectriz','ta')+T(190,92,'misma distancia','tm')+T(190,106,'a los dos lados','tm'),150);},
+mediana(){const{svg,L,Pg,T,RA,tick}=GR;const a=[38,138],b=[212,138],c=[92,28],k=[125,138],h=[92,138];return svg(
+  Pg([a,k,c],'fa')+Pg([k,b,c],'fg')+Pg([a,b,c],'s')+L(c[0],c[1],k[0],k[1],'a')+L(c[0],c[1],h[0],h[1],'pd')+RA(h,b,c,8)+tick(a,k)+tick(k,b)+
+  T(126,62,'mediana','ta','start')+T(60,84,'altura','tp')+T(66,122,'mitad','tm')+T(168,122,'mitad','tm')+T(125,154,'las dos mitades tienen igual área','tm'),162);},
+'puntos-notables'(){const{svg,Pg,C,T,P,pt}=GR;const A=pt(120,80,68,105),B=pt(120,80,68,215),Cc=pt(120,80,68,325);
+  const la=Math.hypot(B[0]-Cc[0],B[1]-Cc[1]),lb=Math.hypot(A[0]-Cc[0],A[1]-Cc[1]),lc=Math.hypot(A[0]-B[0],A[1]-B[1]),s=la+lb+lc;
+  const I=[(la*A[0]+lb*B[0]+lc*Cc[0])/s,(la*A[1]+lb*B[1]+lc*Cc[1])/s];const area=Math.abs((B[0]-A[0])*(Cc[1]-A[1])-(Cc[0]-A[0])*(B[1]-A[1]))/2,r=2*area/s;return svg(
+  C(120,80,68,'a')+Pg([A,B,Cc])+C(I[0],I[1],r,'g')+P(120,80,'dota')+P(I[0],I[1],'dotg')+
+  T(130,80,'O','ta','start')+T(I[0]+8,I[1]+6,'I','tg','start')+T(200,18,'circunscrita','ta sm')+T(204,140,'inscrita','tg sm'),156);},
+perimetro(){const{svg,Pg,T,grid}=GR;return svg(
+  Pg([[12,52],[120,52],[120,64],[12,64]],'fa3')+grid([12,52],[12,0],[0,12],9,1)+
+  Pg([[150,24],[210,24],[210,84],[150,84]],'fa3')+grid([150,24],[12,0],[0,12],5)+
+  T(66,84,'9 × 1','')+T(66,102,'P = 20 · A = 9','tm')+T(180,102,'5 × 5','')+T(180,120,'P = 20 · A = 25','tm')+
+  T(120,146,'mismo perímetro, distinta área','tp'),156);},
+area(){const{svg,L,Pg,T,RA,AR}=GR;return svg(
+  Pg([[20,118],[130,118],[160,48],[50,48]],'fa')+Pg([[20,118],[50,118],[50,48]],'fp')+Pg([[130,118],[160,118],[160,48]],'fpd')+
+  Pg([[20,118],[130,118],[160,48],[50,48]],'s')+L(50,48,50,118,'d')+RA([50,118],[130,118],[50,48],8)+
+  `<path class="s" d="M36 126 Q 95 156 146 126"${AR}/>`+T(42,90,'h','tp')+T(105,38,'b')+
+  T(200,70,'paralelogramo','tm')+T(200,86,'= rectángulo','tm')+T(200,106,'b × h','ta'),160);},
+'area-dos-maneras'(){const{svg,L,Pg,T,RA,foot}=GR;const r=[40,130],a=[40,58],b=[136,130],h=foot(r,a,b);return svg(
+  Pg([r,a,b])+RA(r,b,a,8)+L(r[0],r[1],h[0],h[1],'pd')+RA(h,b,r,7)+
+  T(28,94,'6')+T(88,144,'8')+T(96,84,'10')+T(66,108,'h','tp')+
+  T(188,58,'6 × 8 = 10 × h','ta')+T(188,80,'48 = 10 × h','tm')+T(188,102,'h = 4,8','tp'),156);},
+simetria(){const{svg,L,Pg,T}=GR;const s=[[40,36],[96,56],[70,76],[86,116],[44,102]];const m=s.map(p=>[240-p[0],p[1]]);return svg(
+  Pg(s,'fa')+Pg(m,'fg')+L(120,8,120,150,'ad')+L(96,56,144,56,'d')+L(86,116,154,116,'d')+
+  T(128,16,'eje','ta','start')+T(60,140,'figura','tm')+T(180,140,'reflejo','tm'));},
+semejanza(){const{svg,L,Pg,T,AR}=GR;return svg(
+  Pg([[18,140],[68,140],[28,100]],'fa')+Pg([[100,140],[200,140],[120,60]],'f')+
+  `<polyline class="d" points="150,140 110,100 160,100 150,140"/>`+L(74,118,96,118,'s',AR)+
+  T(43,154,'original','tm')+T(150,154,'lados × 2','tm')+T(176,24,'área × 4','ta')+T(176,42,'(entran 4 copias)','tm'),162);},
+euler(){const{svg,L,Pg,T}=GR;return svg(
+  Pg([[20,64],[80,64],[80,124],[20,124]],'fa')+Pg([[20,64],[50,39],[110,39],[80,64]],'fg')+Pg([[80,64],[110,39],[110,99],[80,124]],'fp')+
+  L(50,99,110,99,'d')+L(50,99,50,39,'d')+L(50,99,20,124,'d')+
+  Pg([[182,28],[140,132],[200,132]],'fa')+Pg([[182,28],[200,132],[226,108]],'fp')+L(140,132,166,108,'d')+L(166,108,226,108,'d')+L(182,28,166,108,'d')+
+  T(65,146,'C 6 · V 8 · A 12','tm')+T(184,148,'C 5 · V 5 · A 8','tm'),158);},
+desarrollos(){const{svg,Pg,T,L,AR}=GR;const sq=(x,y,n,c='fa3')=>Pg([[x,y],[x+28,y],[x+28,y+28],[x,y+28]],c)+T(x+14,y+14,n);return svg(
+  sq(20,52,'2')+sq(48,52,'1','fg3')+sq(76,52,'5')+sq(104,52,'6')+sq(48,24,'3')+sq(48,80,'4')+
+  L(140,66,166,66,'s',AR)+
+  Pg([[176,60],[214,60],[214,98],[176,98]],'fg3')+Pg([[176,60],[214,60],[227,48],[189,48]],'fa3')+Pg([[214,60],[227,48],[227,86],[214,98]],'fa3')+
+  T(195,79,'1')+T(201,54,'3')+T(220.5,74,'5')+T(76,128,'desarrollo en cruz','tm')+T(202,128,'dado armado','tm')+T(120,148,'caras opuestas: 1–6 · 2–5 · 3–4','tp'),158);},
+volumen(){const{svg,L,Pg,T}=GR;let g='';const u=18,dx=9,dy=-7;
+  for(let i=1;i<4;i++)g+=L(40+u*i,94,40+u*i,130,'gl')+L(40+u*i,94,40+u*i+3*dx,94+3*dy,'gl');g+=L(40,112,112,112,'gl')+L(112,112,112+3*dx,112+3*dy,'gl');
+  for(let j=1;j<3;j++)g+=L(40+dx*j,94+dy*j,112+dx*j,94+dy*j,'gl')+L(112+dx*j,94+dy*j,112+dx*j,130+dy*j,'gl');return svg(
+  Pg([[40,94],[112,94],[112,130],[40,130]],'fa')+Pg([[40,94],[67,73],[139,73],[112,94]],'fg')+Pg([[112,94],[139,73],[139,109],[112,130]],'fp')+g+
+  Pg([[40,94],[112,94],[112,130],[40,130]],'s')+Pg([[40,94],[67,73],[139,73],[112,94]],'s')+Pg([[112,94],[139,73],[139,109],[112,130]],'s')+
+  T(76,146,'4','tm')+T(132,128,'3','tm')+T(30,112,'2','tm')+T(190,84,'4 × 3 × 2','ta')+T(190,104,'= 24 cubitos','tm'),156);},
+elipse(){const{svg,L,T,P}=GR;const a=[42.5,85],b=[197.5,85],p=[167.5,37.4];return svg(
+  `<ellipse class="fa2" cx="120" cy="85" rx="95" ry="55"/>`+L(a[0],a[1],p[0],p[1],'a')+L(b[0],b[1],p[0],p[1],'g')+
+  P(a[0],a[1],'doti')+P(b[0],b[1],'doti')+P(p[0],p[1])+T(42,98,'A')+T(198,98,'B')+T(176,28,'P','','start')+
+  T(100,52,'PA','ta')+T(192,60,'PB','tg')+T(120,154,'PA + PB = siempre lo mismo','tm'),162);},
+invariante(){const{svg,L,Pg,T,P}=GR;const a=[30,128],b=[150,128];const tri=(x,c)=>`<polygon class="${c}" points="30,128 150,128 ${x},48"/>`;return svg(
+  L(8,48,232,48,'d')+tri(55,'a')+tri(112,'g')+tri(205,'p')+L(30,128,150,128,'s')+P(55,48,'dota')+P(112,48,'dotg')+P(205,48)+
+  L(222,48,222,128,'d')+T(230,88,'h','','start')+T(90,140,'misma base','tm')+T(120,22,'el vértice se mueve sobre la paralela','tm sm')+T(120,154,'→ siempre la misma área','ta'),162);},
+construccion(){const{svg,Pg,C,T,P,tick}=GR;const a=[90,96],b=[150,96],c=[120,44];return svg(
+  C(90,96,60,'cg')+C(150,96,60,'cg')+Pg([a,b,c])+tick(a,b)+tick(a,c)+tick(b,c)+P(a[0],a[1],'dota')+P(b[0],b[1],'dota')+P(c[0],c[1])+
+  T(80,106,'A')+T(160,106,'B')+T(120,32,'C')+T(28,150,'radio AB','tm')+T(212,150,'radio AB','tm'),160);}
+};
+
+/* ---------- Contenido del glosario ---------- */
 const GLOSS=[
-{id:'basicos',cat:'Lo básico',t:'Punto, recta, semirrecta y segmento',d:'El punto marca una posición. La recta es infinita para los dos lados. La semirrecta tiene un origen y sigue para un solo lado. El segmento tiene dos extremos y se puede medir.',u:'Leé con atención: "la recta AB" no termina en A ni en B; "el segmento AB" sí.'},
-{id:'clas-angulos',cat:'Ángulos',t:'Clasificación de ángulos',d:'Agudo: menos de 90°. Recto: 90°. Obtuso: entre 90° y 180°. Llano: 180°. Giro completo: 360°.',f:'agudo < 90° = recto < obtuso < 180° = llano',u:'Sirve para comprobar si un resultado tiene sentido mirando el dibujo.'},
-{id:'angulos-pares',cat:'Ángulos',t:'Complementarios, suplementarios y opuestos por el vértice',d:'Complementarios: suman 90°. Suplementarios: suman 180°. Opuestos por el vértice: los que quedan enfrentados cuando se cruzan dos rectas; son iguales.',f:'α + β = 90° · α + β = 180° · opuestos iguales',u:'Cuando dos rectas se cruzan, con un solo ángulo sabés los cuatro.'},
-{id:'paralelas',cat:'Ángulos',t:'Paralelas cortadas por una transversal',d:'Se forman 8 ángulos. Alternos internos: entre las paralelas, en lados opuestos de la transversal; son iguales. Correspondientes: en la misma posición en cada cruce; son iguales. Conjugados internos: entre las paralelas, del mismo lado; suman 180°.',u:'Trazar una paralela auxiliar es un truco clásico para mover ángulos de lugar.'},
-{id:'clas-triangulos',cat:'Triángulos',t:'Clasificación de triángulos',d:'Por sus lados: equilátero (3 iguales), isósceles (2 iguales), escaleno (ninguno igual). Por sus ángulos: acutángulo (3 agudos), rectángulo (uno de 90°), obtusángulo (uno obtuso). Desigualdad triangular: cada lado es menor que la suma de los otros dos.',u:'Con la desigualdad triangular sabés si con tres medidas se puede armar un triángulo.'},
-{id:'suma-triangulo',cat:'Triángulos',t:'Suma de ángulos de un triángulo',d:'Los tres ángulos interiores de cualquier triángulo suman 180°. Se ve trazando por un vértice la paralela al lado opuesto: los tres ángulos quedan juntos formando un llano.',f:'α + β + γ = 180°',u:'Es la herramienta más usada para "perseguir ángulos".'},
-{id:'angulo-exterior',cat:'Triángulos',t:'Ángulo exterior',d:'Es el que se forma entre un lado y la prolongación del lado vecino. Mide lo mismo que la suma de los dos ángulos interiores que no están pegados a él.',f:'exterior = α + β',u:'Atajo para no pasar por el ángulo interior.'},
-{id:'isosceles',cat:'Triángulos',t:'Triángulo isósceles y equilátero',d:'En un isósceles, los ángulos de la base (opuestos a los lados iguales) son iguales. Y al revés: si dos ángulos son iguales, los lados opuestos también. En el equilátero los tres ángulos miden 60°.',u:'Si en el dibujo hay dos radios de la misma circunferencia, ¡hay un isósceles escondido!'},
-{id:'pitagoras',cat:'Triángulos',t:'Teorema de Pitágoras',d:'En un triángulo rectángulo, el cuadrado de la hipotenusa (el lado opuesto al ángulo recto) es igual a la suma de los cuadrados de los catetos. Ternas famosas: 3-4-5, 6-8-10, 5-12-13.',f:'a² + b² = c²',u:'Sirve para hallar un lado conociendo los otros dos, y para saber si un triángulo es rectángulo.'},
-{id:'perimetro',cat:'Medidas',t:'Perímetro',d:'Es la longitud del borde de una figura: la suma de todos sus lados.',u:'Se mide en cm, m… (unidades de longitud). No confundir con área.'},
-{id:'area',cat:'Medidas',t:'Áreas de figuras',d:'Rectángulo: base × altura. Cuadrado: lado × lado. Triángulo: base × altura : 2. Paralelogramo: base × altura. Rombo: diagonal mayor × diagonal menor : 2. Trapecio: (base mayor + base menor) × altura : 2. Círculo: π × radio².',f:'triángulo = b × h : 2',u:'La altura siempre es perpendicular a la base. Se mide en cm², m²…'},
-{id:'area-dos-maneras',cat:'Medidas',t:'Calcular un área de dos maneras',d:'Si podés calcular la misma área usando dos bases distintas, las dos cuentas tienen que dar igual. De esa igualdad sale el dato que falta.',f:'b₁ × h₁ = b₂ × h₂',u:'Ideal para hallar alturas y distancias de un punto a un lado.'},
-{id:'invariante',cat:'Ideas de olimpíada',t:'Invariante',d:'Es algo que no cambia aunque muevas parte de la figura. Por ejemplo, el área de un triángulo no cambia si el vértice se mueve sobre una paralela a la base.',u:'En GeoGebra: arrastrá un punto y fijate qué medida se queda quieta. Eso es lo que tenés que explicar por qué pasa.'},
-{id:'suma-poligono',cat:'Polígonos',t:'Suma de ángulos de un polígono',d:'Desde un vértice, las diagonales parten un polígono de n lados en n − 2 triángulos.',f:'S = (n − 2) × 180°',u:'Cuadrilátero 360°, pentágono 540°, hexágono 720°.'},
-{id:'regular',cat:'Polígonos',t:'Polígono regular',d:'Todos sus lados y todos sus ángulos son iguales. Sus ángulos exteriores suman 360°, así que cada uno mide 360° : n. Cada ángulo interior mide 180° menos el exterior.',f:'exterior = 360° : n',u:'Partirlo desde el centro en n triángulos isósceles iguales suele destrabar los problemas.'},
-{id:'diagonales',cat:'Polígonos',t:'Cantidad de diagonales',d:'Desde cada vértice salen n − 3 diagonales, y cada una se cuenta dos veces.',f:'D = n × (n − 3) : 2',u:'Cuadrilátero 2, pentágono 5, hexágono 9.'},
-{id:'circunferencia',cat:'Circunferencia',t:'Circunferencia y círculo',d:'La circunferencia es la línea curva; el círculo es la superficie de adentro. Radio: del centro a la circunferencia. Diámetro: dos radios en línea recta. Cuerda: une dos puntos de la circunferencia. Arco: un pedazo de la circunferencia.',f:'L = 2 × π × r · A = π × r²',u:'Todos los radios miden lo mismo: es la propiedad más usada en las construcciones.'},
-{id:'inscrito',cat:'Circunferencia',t:'Ángulo central y ángulo inscrito',d:'Central: el vértice está en el centro. Inscrito: el vértice está sobre la circunferencia y sus lados son cuerdas. El inscrito mide la mitad del central que abarca el mismo arco. Por eso, todo ángulo inscrito en una semicircunferencia mide 90°.',f:'inscrito = central : 2',u:'Si un triángulo tiene un lado que es diámetro, es rectángulo.'},
-{id:'mediatriz',cat:'Rectas notables',t:'Mediatriz',d:'Es la recta perpendicular a un segmento que pasa por su punto medio. Cada punto de la mediatriz está a la misma distancia de los dos extremos del segmento.',u:'Para encontrar un punto que esté a igual distancia de A y de B.',lab:'med'},
-{id:'bisectriz',cat:'Rectas notables',t:'Bisectriz',d:'Es la semirrecta que parte un ángulo en dos ángulos iguales. Cada punto de la bisectriz está a la misma distancia de los dos lados del ángulo.',u:'Cuando el enunciado dice "parte el ángulo en dos" o "equidista de los lados".',lab:'bis'},
-{id:'mediana',cat:'Rectas notables',t:'Mediana y altura',d:'Mediana: une un vértice con el punto medio del lado opuesto; parte al triángulo en dos de igual área. Altura: sale de un vértice y cae perpendicular al lado opuesto (o a su prolongación).',u:'Mediana → áreas iguales. Altura → fórmula del área.'},
-{id:'puntos-notables',cat:'Rectas notables',t:'Puntos notables del triángulo',d:'Circuncentro: donde se cortan las mediatrices; es el centro de la circunferencia que pasa por los 3 vértices. Incentro: donde se cortan las bisectrices; centro de la circunferencia que toca los 3 lados. Baricentro: donde se cortan las medianas; está a 2/3 de cada vértice. Ortocentro: donde se cortan las alturas.',u:'Truco para recordar: mediatrices → circunscrita; bisectrices → inscrita.',lab:'circ'},
-{id:'simetria',cat:'Transformaciones',t:'Simetría',d:'Simetría axial: reflejo en un espejo (eje). Simetría central: giro de 180° alrededor de un punto. Rotación: giro alrededor de un punto con cierto ángulo. Las tres conservan medidas y ángulos.',u:'Si una figura tiene simetría, alcanza con resolver una mitad.'},
-{id:'semejanza',cat:'Transformaciones',t:'Semejanza',d:'Dos figuras son semejantes si tienen la misma forma: ángulos iguales y lados proporcionales. Si los lados se multiplican por k, las áreas se multiplican por k × k.',f:'lados × k → área × k²',u:'Duplicar el lado de un cuadrado cuadruplica su área.'},
-{id:'euler',cat:'Cuerpos',t:'Cuerpos y fórmula de Euler',d:'En un poliedro (cuerpo de caras planas) hay caras, vértices y aristas. Cubo: 6 caras, 8 vértices, 12 aristas. Para todos los poliedros convexos se cumple la fórmula de Euler.',f:'C + V = A + 2',u:'Para comprobar si contaste bien, o para hallar un dato que falta.'},
-{id:'construccion',cat:'Ideas de olimpíada',t:'Construir no es dibujar',d:'Construir con regla y compás (o con GeoGebra) significa que la figura cumple la propiedad por cómo la hiciste, no porque "quedó bien a ojo". Prueba: si arrastrás los puntos libres y la propiedad se mantiene, es una construcción.',u:'En el laboratorio, al terminar cada construcción, arrastrá los puntos azules.',lab:'eq'},
-{id:'base-media',cat:'Triángulos',t:'Base media',d:'Es el segmento que une los puntos medios de dos lados de un triángulo. Es paralelo al tercer lado y mide la mitad de ese lado.',f:'base media = lado : 2',u:'Siempre que el enunciado hable de puntos medios. Si unís los puntos medios de los lados de cualquier cuadrilátero, sale un paralelogramo.'},
-{id:'tangentes',cat:'Circunferencia',t:'Tangentes',d:'Una recta tangente toca a la circunferencia en un solo punto y es perpendicular al radio en ese punto. Dos circunferencias tangentes se tocan en un punto que está sobre la recta que une sus centros: la distancia entre centros es la suma de los radios (si están por fuera) o la resta (si una está adentro).',f:'d = R + r · d = R − r',u:'Trazá radios a los puntos de contacto y la recta de los centros: aparecen ángulos rectos y triángulos isósceles.'},
-{id:'elipse',cat:'Curvas',t:'Elipse',d:'Es la curva formada por los puntos P cuya suma de distancias a dos puntos fijos A y B (los focos) es siempre la misma. Se dibuja con un hilo atado a dos chinches y un lápiz que lo mantiene tirante.',f:'PA + PB = constante',u:'Si hay un triángulo con dos vértices en los focos, su perímetro no cambia al mover el tercero sobre la elipse.'}
+{id:'basicos',cat:'Lo básico',t:'Punto, recta, semirrecta y segmento',
+ d:'El punto marca una posición y no tiene tamaño; se nombra con mayúscula (A, B, P). La recta es una línea derecha que no termina nunca, para ningún lado. La semirrecta empieza en un punto, su origen, y sigue infinita para un solo lado. El segmento es el pedazo de recta entre dos puntos: tiene principio y fin, y por eso se puede medir.',
+ im:'Una recta es como un láser que atraviesa el universo de ida y de vuelta. Una semirrecta es la luz de una linterna: sale de un lugar y sigue. Un segmento es un lápiz: tiene dos puntas.',
+ pr:['Por dos puntos pasa una sola recta.','Por un punto pasan infinitas rectas.','Solo los segmentos tienen longitud: una recta no se puede medir.'],
+ ej:'Con 4 puntos, sin 3 alineados, se pueden trazar 6 rectas distintas: AB, AC, AD, BC, BD y CD.',
+ u:'Leer bien el enunciado. "La recta AB" sigue más allá de A y de B; "el segmento AB" termina en ellos. Muchos puntos de corte aparecen solo si prolongás.',
+ ojo:'Pensar que dos rectas no se cortan porque en el dibujo no llegan a tocarse. Si no son paralelas, en algún lugar se cortan.'},
+{id:'rectas-posiciones',cat:'Lo básico',t:'Rectas paralelas y perpendiculares',
+ d:'Dos rectas son paralelas si nunca se cortan: mantienen siempre la misma distancia entre ellas. Son perpendiculares si se cortan formando cuatro ángulos rectos, de 90°. Se escribe r ∥ s y r ⊥ s.',
+ im:'Las vías del tren son paralelas. Las esquinas de una hoja de carpeta muestran lados perpendiculares.',
+ pr:['Por un punto que no está en una recta pasa una sola paralela y una sola perpendicular a ella.','La distancia de un punto a una recta se mide sobre la perpendicular: es el camino más corto.','Dos rectas perpendiculares a una misma recta son paralelas entre sí.'],
+ ej:'En un rectángulo, los lados opuestos son paralelos y los lados vecinos son perpendiculares.',
+ u:'La altura de un triángulo es una perpendicular. La distancia entre dos paralelas es la altura de trapecios y paralelogramos.',
+ ojo:'Medir la distancia de un punto a una recta "en diagonal". La distancia siempre va en ángulo recto.'},
+{id:'clas-angulos',cat:'Ángulos',t:'Ángulos y su clasificación',
+ d:'Un ángulo es la abertura entre dos semirrectas que salen del mismo punto, el vértice. Se mide en grados (°), y una vuelta completa tiene 360°. Lo que importa es cuánto se abre, no qué tan largos dibujes los lados.',
+ im:'Abrí una tijera de a poco. Empieza cerrada, pasa por agudo, llega a recto como la esquina de un cuaderno, sigue a obtuso y termina estirada en llano.',
+ pr:['Agudo: menos de 90°.','Recto: exactamente 90°. Se marca con un cuadradito.','Obtuso: entre 90° y 180°.','Llano: 180°. Los dos lados forman una recta.','Giro completo: 360°.'],
+ f:'agudo < 90° = recto < obtuso < 180° = llano',
+ ej:'Las agujas del reloj a las 3 en punto forman un ángulo recto; a las 6 en punto, un llano.',
+ u:'Antes de entregar una respuesta, mirá el dibujo. Si el ángulo se ve agudo y te dio 130°, revisá la cuenta.',
+ ojo:'Creer que un ángulo con lados más largos es más grande. El tamaño de un ángulo es su abertura.'},
+{id:'angulos-pares',cat:'Ángulos',t:'Complementarios, suplementarios y opuestos por el vértice',
+ d:'Dos ángulos son complementarios si juntos suman 90° y suplementarios si juntos suman 180°. Cuando dos rectas se cruzan forman cuatro ángulos: los que quedan enfrentados se llaman opuestos por el vértice y miden lo mismo.',
+ im:'Si a una porción de pizza le falta un pedazo para completar media pizza, ese pedazo que falta es su suplemento.',
+ pr:['El complemento de un ángulo α es 90° − α.','El suplemento de α es 180° − α.','Los ángulos opuestos por el vértice son iguales.','Dos ángulos vecinos sobre una misma recta (adyacentes) suman 180°.'],
+ f:'complementarios: α + β = 90° · suplementarios: α + β = 180°',
+ ej:'Dos rectas se cortan y uno de los ángulos mide 70°. Su opuesto también mide 70°, y los otros dos miden 180° − 70° = 110° cada uno.',
+ u:'Con un solo ángulo de un cruce de rectas ya conocés los cuatro. Es el primer paso de casi toda persecución de ángulos.',
+ ojo:'Confundir complementario (90°) con suplementario (180°). Truco: la C viene antes que la S en el abecedario, como 90 viene antes que 180.'},
+{id:'paralelas',cat:'Ángulos',t:'Paralelas cortadas por una transversal',
+ d:'Cuando una recta, la transversal, corta a dos rectas paralelas, se forman 8 ángulos: 4 en cada cruce. Como las paralelas tienen la misma dirección, los dos cruces son copias uno del otro y los ángulos se repiten.',
+ im:'Es como estampar el mismo sello dos veces: lo que pasa en el cruce de arriba pasa igual en el de abajo.',
+ pr:['Correspondientes: misma posición en cada cruce. Son iguales.','Alternos internos: entre las paralelas, a distinto lado de la transversal. Son iguales y forman una Z.','Alternos externos: afuera de las paralelas, a distinto lado. Son iguales.','Conjugados internos: entre las paralelas, del mismo lado. Suman 180° y forman una C.'],
+ ej:'Si uno de los 8 ángulos mide 115°, todos los demás miden 115° o 65°. Solo hay dos medidas.',
+ u:'Trazar una paralela auxiliar por un vértice es un truco clásico. Así se demuestra que los ángulos de un triángulo suman 180°.',
+ ojo:'Usar estas igualdades cuando las rectas no son paralelas. Solo valen con paralelas.'},
+{id:'clas-triangulos',cat:'Triángulos',t:'Triángulos y su clasificación',
+ d:'Un triángulo es el polígono de 3 lados. Se clasifica de dos maneras, por sus lados y por sus ángulos, y las dos clasificaciones se combinan: un triángulo puede ser, por ejemplo, rectángulo e isósceles a la vez.',
+ im:'Tres palitos no siempre arman un triángulo: si uno es demasiado largo, los otros dos no llegan a tocarse.',
+ pr:['Por lados: equilátero (3 iguales), isósceles (2 iguales), escaleno (todos distintos).','Por ángulos: acutángulo (3 agudos), rectángulo (uno recto), obtusángulo (uno obtuso).','Desigualdad triangular: cada lado es menor que la suma de los otros dos.','El lado mayor está enfrente del ángulo mayor.'],
+ f:'cada lado < suma de los otros dos',
+ ej:'¿Se puede armar un triángulo con 3, 4 y 8 cm? No, porque 3 + 4 = 7 y es menor que 8.',
+ u:'Saber qué tipo de triángulo tenés te dice qué propiedades usar: isósceles, ángulos iguales; rectángulo, Pitágoras.',
+ ojo:'Un triángulo no puede tener dos ángulos rectos ni dos obtusos: se pasaría de 180°.'},
+{id:'suma-triangulo',cat:'Triángulos',t:'Suma de los ángulos de un triángulo',
+ d:'Los tres ángulos interiores de cualquier triángulo, sea grande, chico, flaco o gordo, suman siempre 180°.',
+ im:'Recortá un triángulo de papel, cortale las tres puntas y juntalas: quedan formando una línea recta, un ángulo llano.',
+ pr:['Por qué pasa: por un vértice trazá la paralela al lado opuesto. Por alternos internos, los tres ángulos quedan uno al lado del otro sobre esa paralela, como en el dibujo.','En un equilátero, cada ángulo mide 60°.','En un triángulo rectángulo, los dos ángulos agudos suman 90°.'],
+ f:'α + β + γ = 180°',
+ ej:'Si dos ángulos miden 35° y 85°, el tercero mide 180° − 120° = 60°.',
+ u:'Es la herramienta número uno para perseguir ángulos.',
+ ojo:'Aplicarla a un cuadrilátero. Ahí la suma es 360°.'},
+{id:'angulo-exterior',cat:'Triángulos',t:'Ángulo exterior',
+ d:'Si prolongás un lado del triángulo más allá de un vértice, se forma un ángulo afuera: el ángulo exterior. Mide exactamente lo mismo que la suma de los dos ángulos interiores que no están pegados a él.',
+ im:'Es como si los dos ángulos lejanos se juntaran afuera del triángulo.',
+ pr:['Exterior = 180° − el interior que tiene al lado.','Exterior = suma de los dos interiores lejanos.','Los tres ángulos exteriores de un triángulo, uno por vértice, suman 360°.'],
+ f:'ext = α + γ',
+ ej:'Si los dos ángulos lejanos miden 40° y 75°, el exterior mide 115°, sin calcular nada más.',
+ u:'Ahorra un paso en las persecuciones de ángulos. Aparece mucho en estrellas y en figuras con triángulos encimados.',
+ ojo:'Sumar el ángulo vecino en lugar de los dos lejanos.'},
+{id:'isosceles',cat:'Triángulos',t:'Triángulo isósceles y equilátero',
+ d:'Un triángulo isósceles tiene dos lados iguales; el tercero se llama base. Los dos ángulos de la base también son iguales. Y vale al revés: si un triángulo tiene dos ángulos iguales, es isósceles. El equilátero es el caso especial con los tres lados iguales y los tres ángulos de 60°.',
+ im:'Un isósceles es como una carpa: si la doblás por la mitad, los dos lados coinciden. Ese doblez es su eje de simetría.',
+ pr:['Lados iguales ⇄ ángulos iguales (los que están enfrente).','El eje de simetría va del vértice al punto medio de la base: es a la vez altura, mediana, mediatriz y bisectriz.','Ángulo de arriba = 180° − 2 × ángulo de la base.'],
+ ej:'Si el ángulo de arriba mide 40°, cada ángulo de la base mide (180° − 40°) : 2 = 70°.',
+ u:'Cada vez que veas dos radios de una misma circunferencia, ahí hay un isósceles escondido.',
+ ojo:'Suponer que un triángulo es isósceles porque "se ve". Tiene que estar dicho o demostrado.'},
+{id:'pitagoras',cat:'Triángulos',t:'Teorema de Pitágoras',
+ d:'En un triángulo rectángulo, los lados que forman el ángulo recto se llaman catetos, y el lado de enfrente, el más largo, hipotenusa. Pitágoras dice que si construís un cuadrado sobre cada lado, el cuadrado de la hipotenusa tiene la misma área que los otros dos juntos.',
+ im:'Mirá el dibujo del triángulo 3-4-5: el cuadrado del 3 tiene 9 cuadraditos y el del 4 tiene 16. Juntos son 25, justo los que entran en el cuadrado del 5.',
+ pr:['Para la hipotenusa: c² = a² + b².','Para un cateto: a² = c² − b².','Funciona al revés: si a² + b² = c², el triángulo es rectángulo.','Ternas para recordar: 3-4-5, 6-8-10, 5-12-13, 8-15-17.'],
+ f:'a² + b² = c²',
+ ej:'Catetos 6 y 8: c² = 36 + 64 = 100, entonces c = 10.',
+ u:'Hallar diagonales, alturas, radios y distancias en una cuadrícula.',
+ ojo:'Sumar los lados sin elevarlos al cuadrado: 6 + 8 da 14, no 10. Y solo vale en triángulos rectángulos.'},
+{id:'congruencia',cat:'Triángulos',t:'Triángulos iguales (congruentes)',
+ d:'Dos triángulos son iguales, o congruentes, si se pueden superponer exactamente, aunque estén girados o dados vuelta. No hace falta comparar las 6 medidas: alcanza con 3 bien elegidas.',
+ im:'Son como dos piezas idénticas de rompecabezas: si una encaja en un lugar, la otra también.',
+ pr:['LLL: los tres lados iguales.','LAL: dos lados iguales y el ángulo entre ellos, igual.','ALA: un lado igual y los dos ángulos pegados a él, iguales.','Si son iguales, todo lo demás también: ángulos, alturas y áreas.'],
+ ej:'La construcción de la bisectriz funciona por LLL: los dos triangulitos que se forman tienen los tres lados iguales.',
+ u:'Para explicar por qué dos segmentos o dos ángulos son iguales, buscá dos triángulos iguales que los contengan.',
+ ojo:'Tres ángulos iguales no alcanzan: los triángulos pueden ser de distinto tamaño. Eso es semejanza, no igualdad.'},
+{id:'base-media',cat:'Triángulos',t:'Base media',
+ d:'La base media de un triángulo es el segmento que une los puntos medios de dos de sus lados. Tiene dos propiedades: es paralela al tercer lado y mide justo la mitad de él.',
+ im:'Si cortás un triángulo por la base media, la punta de arriba es una copia del triángulo entero achicada a la mitad.',
+ pr:['MN es paralela a BC.','MN mide la mitad de BC.','Las tres bases medias parten al triángulo en 4 triángulos iguales; cada uno tiene 1/4 del área.','Si unís los puntos medios de los lados de cualquier cuadrilátero, sale un paralelogramo (de Varignon).'],
+ f:'MN = BC : 2',
+ ej:'Si BC mide 10 cm, el segmento que une los puntos medios de AB y AC mide 5 cm.',
+ u:'Siempre que el enunciado hable de puntos medios.',
+ ojo:'Unir un punto medio con un vértice: eso es una mediana, no una base media.'},
+{id:'poligonos',cat:'Polígonos',t:'Polígonos',
+ d:'Un polígono es una figura plana cerrada formada solo por segmentos, sus lados, que no se cruzan. Se nombra por la cantidad de lados: triángulo (3), cuadrilátero (4), pentágono (5), hexágono (6), heptágono (7), octógono (8), eneágono (9), decágono (10). Es convexo si todos sus ángulos miden menos de 180°, y cóncavo si tiene alguno hundido, de más de 180°.',
+ im:'Si estirás un elástico alrededor de un polígono convexo, toca todos los lados. En uno cóncavo, el elástico salta por encima de la parte hundida.',
+ pr:['Tiene tantos lados como vértices y como ángulos.','Convexo: cualquier segmento entre dos puntos de adentro queda adentro.','Un círculo no es un polígono: su borde es curvo.'],
+ ej:'El contorno de una estrella de cinco puntas es un decágono cóncavo: tiene 10 lados.',
+ u:'Conocer los nombres para entender el enunciado, y saber si es convexo antes de usar las fórmulas de ángulos.',
+ ojo:'Pensar que "hexágono" significa hexágono regular. Puede tener lados distintos.'},
+{id:'cuadrilateros',cat:'Polígonos',t:'Cuadriláteros',
+ d:'Los cuadriláteros tienen 4 lados y sus ángulos suman 360°. Forman una familia que se ordena según cuántos pares de lados paralelos tienen y qué más cumplen.',
+ im:'Pensalo como un árbol genealógico: el cuadrado es hijo del rectángulo y del rombo, y todos ellos son paralelogramos.',
+ pr:['Trapecio: al menos un par de lados paralelos, las bases.','Paralelogramo: dos pares de lados paralelos. Lados opuestos iguales y diagonales que se cortan en su punto medio.','Rectángulo: paralelogramo con 4 ángulos rectos. Diagonales iguales.','Rombo: paralelogramo con 4 lados iguales. Diagonales perpendiculares.','Cuadrado: es rectángulo y rombo a la vez.','Romboide: dos pares de lados vecinos iguales. Diagonales perpendiculares.'],
+ f:'suma de ángulos = 360°',
+ ej:'Todo cuadrado es un rectángulo, pero no todo rectángulo es un cuadrado.',
+ u:'Cada tipo trae propiedades de regalo (diagonales iguales, perpendiculares o que se cortan al medio) que destraban problemas.',
+ ojo:'Creer que el rombo tiene ángulos rectos. Solo los tiene si además es cuadrado.'},
+{id:'suma-poligono',cat:'Polígonos',t:'Suma de los ángulos interiores',
+ d:'Desde un vértice podés trazar diagonales a todos los vértices que no son vecinos. Así el polígono queda partido en triángulos: siempre 2 menos que la cantidad de lados. Como cada triángulo aporta 180°, la suma total sale sola.',
+ im:'Es como cortar una pizza con forma de polígono desde una sola esquina.',
+ pr:['n lados → n − 2 triángulos.','Cuadrilátero 360°, pentágono 540°, hexágono 720°, octógono 1080°.','Vale para cualquier polígono convexo, regular o no.'],
+ f:'S = (n − 2) × 180°',
+ ej:'Heptágono (7 lados): (7 − 2) × 180° = 900°.',
+ u:'Calcular ángulos de polígonos y, si es regular, cada ángulo por separado.',
+ ojo:'Multiplicar n × 180°. Sobran dos triángulos, porque los vértices vecinos no forman triángulo nuevo.'},
+{id:'regular',cat:'Polígonos',t:'Polígono regular',
+ d:'Un polígono es regular si tiene todos sus lados iguales y, además, todos sus ángulos iguales. Tiene un centro que está a la misma distancia de todos los vértices, así que siempre entra justo dentro de una circunferencia.',
+ im:'Las celdas de un panal de abejas, la señal de PARE (un octógono) o un triángulo equilátero.',
+ pr:['Cada ángulo exterior mide 360° : n.','Cada ángulo interior mide 180° − el exterior.','Desde el centro se parte en n triángulos isósceles iguales. En el hexágono, esos triángulos son equiláteros.','Tiene n ejes de simetría.'],
+ f:'exterior = 360° : n',
+ ej:'Octógono regular: exterior 360° : 8 = 45°; interior 180° − 45° = 135°.',
+ u:'Partirlo desde el centro en piezas iguales destraba casi todos los problemas de áreas en polígonos regulares.',
+ ojo:'Un rombo tiene los lados iguales pero no es regular: sus ángulos no son todos iguales.'},
+{id:'diagonales',cat:'Polígonos',t:'Diagonales de un polígono',
+ d:'Una diagonal es un segmento que une dos vértices que no son vecinos. Desde cada vértice salen n − 3 diagonales: no van a sí mismo ni a sus dos vecinos. Si las contás desde todos los vértices, cada diagonal aparece dos veces, una desde cada punta.',
+ im:'En una ronda de n chicos, cada uno le pasa la pelota a todos menos a sí mismo y a los dos que tiene al lado.',
+ pr:['Desde un vértice: n − 3 diagonales.','En total: n × (n − 3) : 2.','Triángulo 0, cuadrilátero 2, pentágono 5, hexágono 9, octógono 20.'],
+ f:'D = n × (n − 3) : 2',
+ ej:'Decágono: 10 × 7 : 2 = 35 diagonales.',
+ u:'Problemas de conteo, y para dibujar estrellas: las diagonales del pentágono forman la estrella de cinco puntas.',
+ ojo:'Olvidarte de dividir por 2.'},
+{id:'circunferencia',cat:'Circunferencia',t:'Circunferencia y círculo',
+ d:'La circunferencia es la línea curva formada por todos los puntos que están a la misma distancia, el radio, de un punto fijo, el centro. El círculo es la superficie que queda adentro. La circunferencia tiene longitud; el círculo tiene área.',
+ im:'El compás funciona justamente así: una punta fija en el centro y la otra siempre a la misma distancia.',
+ pr:['Radio (r): del centro a la circunferencia.','Diámetro (d): la cuerda que pasa por el centro. Mide 2r y es la cuerda más larga.','Cuerda: une dos puntos de la circunferencia.','Arco: un pedazo de circunferencia entre dos puntos.','π ≈ 3,14 es la cantidad de veces que el diámetro entra en la vuelta completa.'],
+ f:'L = 2 · π · r · A = π · r²',
+ ej:'Con radio 10 cm: L ≈ 62,8 cm y A ≈ 314 cm².',
+ u:'Todos los radios son iguales: es la propiedad estrella de las construcciones con compás.',
+ ojo:'Usar el diámetro donde va el radio. Con diámetro 10, el área es π × 25, no π × 100.'},
+{id:'inscrito',cat:'Circunferencia',t:'Ángulo central y ángulo inscrito',
+ d:'Un ángulo central tiene el vértice en el centro de la circunferencia. Un ángulo inscrito tiene el vértice sobre la circunferencia y sus lados son cuerdas. Si los dos abarcan el mismo arco, el inscrito mide la mitad del central.',
+ im:'Desde el centro ves el arco más de cerca, y por eso lo ves el doble de abierto que desde el borde.',
+ pr:['Inscrito = central : 2.','Todos los ángulos inscritos que abarcan el mismo arco son iguales, aunque muevas el vértice.','Si el arco es media circunferencia (sus extremos forman un diámetro), el inscrito mide 90°.','En un cuadrilátero con los vértices sobre una circunferencia, los ángulos opuestos suman 180°.'],
+ f:'inscrito = central : 2',
+ ej:'Si el ángulo central mide 100°, cualquier inscrito sobre el mismo arco mide 50°.',
+ u:'Si un triángulo tiene un lado que es diámetro, ya sabés que es rectángulo.',
+ ojo:'Usar la propiedad cuando los dos ángulos no abarcan el mismo arco.'},
+{id:'tangentes',cat:'Circunferencia',t:'Tangentes',
+ d:'Una recta es tangente a una circunferencia si la toca en un solo punto, sin entrar. En ese punto, el radio y la tangente son perpendiculares. Dos circunferencias son tangentes si se tocan en un solo punto.',
+ im:'Una pelota apoyada en el piso: el piso es tangente a la pelota, y el punto de apoyo queda justo debajo del centro.',
+ pr:['El radio es perpendicular a la tangente en el punto de contacto.','Desde un punto exterior salen dos tangentes, y los dos segmentos tangentes miden lo mismo.','Circunferencias tangentes por fuera: distancia entre centros = R + r.','Tangentes por dentro: distancia entre centros = R − r.','El punto de contacto está sobre la recta que une los centros.'],
+ f:'por fuera: d = R + r · por dentro: d = R − r',
+ ej:'Dos ruedas de radios 5 cm y 3 cm que se tocan por fuera tienen los centros a 8 cm.',
+ u:'Trazá siempre los radios a los puntos de contacto: aparecen ángulos rectos.',
+ ojo:'Olvidarte de la recta que une los centros. Sin ella, el problema no se ve.'},
+{id:'mediatriz',cat:'Rectas notables',t:'Mediatriz',
+ d:'La mediatriz de un segmento AB es la recta perpendicular a AB que pasa por su punto medio. Su gran propiedad: cada punto de la mediatriz está a la misma distancia de A que de B, y ningún otro punto del plano lo cumple.',
+ im:'Si A y B son dos casas, la mediatriz es la frontera de los lugares que quedan exactamente igual de lejos de las dos.',
+ pr:['Es perpendicular a AB y lo corta en su punto medio M.','P está en la mediatriz si y solo si PA = PB.','Las tres mediatrices de un triángulo se cortan en un punto, el circuncentro.'],
+ ej:'Para ubicar una plaza a la misma distancia de dos escuelas, buscá un lugar sobre la mediatriz.',
+ u:'Encontrar puntos medios, construir perpendiculares y hallar centros de circunferencias.',
+ ojo:'Confundir mediatriz con mediana. La mediatriz no tiene por qué pasar por el vértice de enfrente.',lab:'med'},
+{id:'bisectriz',cat:'Rectas notables',t:'Bisectriz',
+ d:'La bisectriz de un ángulo es la semirrecta que sale del vértice y lo parte en dos ángulos iguales. Su gran propiedad: cada punto de la bisectriz está a la misma distancia de los dos lados del ángulo.',
+ im:'Si el ángulo es una V, la bisectriz es la línea por donde la doblarías para que los dos lados coincidan.',
+ pr:['Divide al ángulo en dos mitades iguales.','Cada punto de la bisectriz está a igual distancia de los dos lados (medida en perpendicular).','Las tres bisectrices de un triángulo se cortan en el incentro, el centro de la circunferencia inscrita.'],
+ ej:'La bisectriz de un ángulo de 60° lo divide en dos ángulos de 30°.',
+ u:'Cuando el enunciado diga "divide al ángulo en partes iguales" o "está a igual distancia de los lados".',
+ ojo:'Creer que la bisectriz corta al lado de enfrente en su punto medio. Solo pasa en el isósceles, desde el vértice desigual.',lab:'bis'},
+{id:'mediana',cat:'Rectas notables',t:'Mediana y altura',
+ d:'La mediana une un vértice con el punto medio del lado de enfrente. La altura sale de un vértice y llega perpendicular al lado de enfrente (o a su prolongación, si el triángulo es obtusángulo). Todo triángulo tiene 3 medianas y 3 alturas.',
+ im:'Si apoyás un triángulo de cartón sobre el filo de una regla, siguiendo una mediana, queda en equilibrio.',
+ pr:['Cada mediana parte al triángulo en dos triángulos de igual área: tienen la misma base y la misma altura.','Las tres medianas se cortan en el baricentro, que está a 2/3 de cada vértice.','La altura es la que se usa en la fórmula del área.','En un triángulo rectángulo, cada cateto es la altura del otro.'],
+ ej:'Si el triángulo tiene área 30 cm², cada mediana lo parte en dos de 15 cm².',
+ u:'Mediana → áreas iguales. Altura → fórmula del área y Pitágoras.',
+ ojo:'Dibujar la altura "derecha para abajo" en vez de perpendicular al lado que elegiste como base.'},
+{id:'puntos-notables',cat:'Rectas notables',t:'Puntos notables del triángulo',
+ d:'En todo triángulo, las tres rectas de cada tipo se cortan en un mismo punto. Así aparecen cuatro puntos notables, cada uno con su función.',
+ im:'Cada uno es un "centro" del triángulo según para qué lo quieras: equilibrio, circunferencias o alturas.',
+ pr:['Circuncentro (O), donde se cortan las mediatrices: centro de la circunferencia que pasa por los 3 vértices.','Incentro (I), donde se cortan las bisectrices: centro de la circunferencia que toca los 3 lados. Siempre está adentro.','Baricentro, donde se cortan las medianas: el punto de equilibrio, a 2/3 de cada vértice.','Ortocentro, donde se cortan las alturas. Puede quedar afuera si el triángulo es obtusángulo.'],
+ ej:'En un triángulo rectángulo, el circuncentro es el punto medio de la hipotenusa.',
+ u:'Truco para recordar: mediatriz → circunscrita (pasa por los vértices); bisectriz → inscrita (queda adentro).',
+ ojo:'Confundir el circuncentro con el incentro.',lab:'circ'},
+{id:'perimetro',cat:'Medidas',t:'Perímetro',
+ d:'El perímetro es la longitud del borde de una figura: la suma de todos sus lados. Se mide en unidades de longitud, como cm o m.',
+ im:'Es la cinta que necesitás para rodear la figura, o lo que caminás al dar una vuelta a la plaza.',
+ pr:['Rectángulo: 2 × (base + altura).','Cuadrado: 4 × lado.','Polígono regular: n × lado.','Circunferencia: 2 × π × r.'],
+ f:'P = suma de todos los lados',
+ ej:'Un rectángulo de 7 por 3 tiene perímetro 7 + 3 + 7 + 3 = 20 cm.',
+ u:'Muchas veces el perímetro es el dato que permite reconstruir los lados que faltan.',
+ ojo:'Creer que mismo perímetro es misma área. Un rectángulo de 9 × 1 y un cuadrado de 5 × 5 tienen perímetro 20, pero áreas 9 y 25.'},
+{id:'area',cat:'Medidas',t:'Área de figuras',
+ d:'El área mide cuánta superficie ocupa una figura: cuántos cuadraditos de 1 × 1 entran adentro. Se mide en unidades cuadradas (cm², m²). Casi todas las fórmulas salen del rectángulo, cortando y moviendo pedazos.',
+ im:'Un paralelogramo es un rectángulo al que le cortaste un triángulo de un costado y lo pegaste del otro: el área no cambió.',
+ pr:['Rectángulo: b × h.','Paralelogramo: b × h, con h perpendicular a b.','Triángulo: b × h : 2, porque es medio paralelogramo.','Trapecio: (B + b) × h : 2.','Rombo y romboide: D × d : 2 (las diagonales).','Círculo: π × r².'],
+ f:'triángulo = b × h : 2',
+ ej:'Trapecio de bases 10 y 6 con altura 4: (10 + 6) × 4 : 2 = 32 cm².',
+ u:'La altura siempre es perpendicular a la base que elegiste, y cualquier lado puede ser la base.',
+ ojo:'Usar el lado inclinado como si fuera la altura.'},
+{id:'area-dos-maneras',cat:'Medidas',t:'Calcular un área de dos maneras',
+ d:'Si podés calcular el área de una misma figura de dos formas distintas, los dos resultados tienen que dar igual. Al igualarlos, aparece el dato que faltaba.',
+ im:'Es como contar los bancos de un aula por filas o por columnas: el total es el mismo.',
+ pr:['En un triángulo: base₁ × altura₁ = base₂ × altura₂ (el ": 2" se cancela).','Sirve para hallar alturas sin medirlas.','También vale partir una figura en pedazos y sumar sus áreas.'],
+ f:'b₁ × h₁ = b₂ × h₂',
+ ej:'Triángulo rectángulo de catetos 6 y 8, con hipotenusa 10: 6 × 8 = 10 × h, entonces h = 4,8.',
+ u:'Distancia de un punto a un lado, altura sobre la hipotenusa, radio de la circunferencia inscrita.',
+ ojo:'Mezclar una base con la altura que corresponde a otra base.'},
+{id:'simetria',cat:'Transformaciones',t:'Simetría y movimientos',
+ d:'Los movimientos cambian una figura de lugar sin deformarla: conservan longitudes, ángulos y áreas. Hay tres básicos: la simetría axial (reflejo en un espejo), la traslación (deslizar) y la rotación (girar alrededor de un punto). La simetría central es una rotación de 180°.',
+ im:'La simetría axial es la mancha de témpera que queda igual de los dos lados cuando doblás la hoja.',
+ pr:['En la simetría axial, cada punto y su reflejo están a la misma distancia del eje, sobre una perpendicular a él.','Una rotación necesita un centro y un ángulo.','Una figura tiene eje de simetría si al reflejarla queda igual a sí misma.','Un polígono regular de n lados tiene n ejes de simetría.'],
+ ej:'El rectángulo tiene 2 ejes de simetría, el cuadrado 4 y el círculo infinitos.',
+ u:'Si una figura es simétrica, resolvés una mitad y duplicás.',
+ ojo:'Creer que la diagonal de un rectángulo es un eje de simetría. Doblalo y vas a ver que no coincide.'},
+{id:'semejanza',cat:'Transformaciones',t:'Semejanza',
+ d:'Dos figuras son semejantes si tienen la misma forma aunque tengan distinto tamaño: sus ángulos son iguales y todos sus lados se multiplican por el mismo número k, la razón de semejanza.',
+ im:'Una foto y su ampliación: todo es más grande, pero nada se deforma.',
+ pr:['Los lados se multiplican por k.','El perímetro se multiplica por k.','El área se multiplica por k × k.','Dos triángulos son semejantes si tienen dos ángulos iguales.','Una paralela a un lado de un triángulo corta un triángulo semejante al original (teorema de Tales).'],
+ f:'lados × k → área × k²',
+ ej:'Si duplicás los lados de un triángulo de área 5 cm², el nuevo tiene área 5 × 4 = 20 cm². En el dibujo se ve: entran 4 copias.',
+ u:'Paralelas dentro de un triángulo, diagonales de trapecios, sombras y alturas.',
+ ojo:'Pensar que al duplicar los lados el área se duplica. Se cuadruplica.'},
+{id:'euler',cat:'Cuerpos',t:'Poliedros y fórmula de Euler',
+ d:'Un poliedro es un cuerpo cuyas caras son todas polígonos. Tiene caras (C), vértices (V, las esquinas) y aristas (A, los bordes donde se juntan dos caras). En todo poliedro convexo se cumple la fórmula de Euler.',
+ im:'Contá en un dado: 6 caras, 8 esquinas y 12 bordes. 6 + 8 = 12 + 2.',
+ pr:['Prisma con base de n lados: C = n + 2, V = 2n, A = 3n.','Pirámide con base de n lados: C = n + 1, V = n + 1, A = 2n.','El cilindro, el cono y la esfera no son poliedros: tienen superficies curvas.'],
+ f:'C + V = A + 2',
+ ej:'Pirámide de base cuadrada: 5 caras, 5 vértices y 8 aristas. 5 + 5 = 8 + 2.',
+ u:'Comprobar si contaste bien, o hallar el dato que falta.',
+ ojo:'Olvidarte de las aristas de atrás. Dibujalas punteadas, como en la figura.'},
+{id:'desarrollos',cat:'Cuerpos',t:'Desarrollos planos',
+ d:'El desarrollo plano de un cuerpo es la figura que obtenés si lo desarmás y lo apoyás sobre la mesa. Al plegarlo de nuevo, vuelve a formar el cuerpo.',
+ im:'Desarmá con cuidado una caja de cereales: ese cartón aplanado es su desarrollo.',
+ pr:['El cubo tiene 11 desarrollos distintos.','En el desarrollo del cubo, dos caras opuestas nunca están pegadas: siempre hay una cara entre ellas.','El área total del cuerpo es el área de su desarrollo.','Un bloque de 2 × 2 cuadrados nunca puede ser parte del desarrollo de un cubo.'],
+ ej:'En la cruz del dibujo, la cara de arriba (3) y la de abajo (4) son opuestas: en un dado, las caras opuestas suman 7.',
+ u:'Los problemas de imaginación espacial piden plegar mentalmente. Poné letras o números a las caras y seguí cada pliegue.',
+ ojo:'Plegar "a ojo" sin marcar las caras. Marcá siempre una cara como base.'},
+{id:'volumen',cat:'Cuerpos',t:'Volumen',
+ d:'El volumen mide cuánto espacio ocupa un cuerpo: cuántos cubitos de 1 × 1 × 1 entran adentro. Se mide en unidades cúbicas (cm³, m³). Un litro es lo que entra en un cubo de 10 cm de lado: 1000 cm³.',
+ im:'Llenar una caja con terrones de azúcar: contás los de una capa y multiplicás por la cantidad de capas.',
+ pr:['Prisma recto o caja: área de la base × altura.','Cubo de lado a: a × a × a.','Pirámide: área de la base × altura : 3.','Si duplicás todas las medidas, el volumen se multiplica por 8.'],
+ f:'V = área de la base × altura',
+ ej:'Caja de 4 × 3 × 2: 12 cubitos por capa × 2 capas = 24 cm³.',
+ u:'Problemas de cuerpos armados con cubitos, cajas y "¿cuántos cubitos faltan?".',
+ ojo:'Sumar las medidas en vez de multiplicarlas.'},
+{id:'elipse',cat:'Curvas',t:'Elipse',
+ d:'La elipse es la curva formada por todos los puntos P cuya suma de distancias a dos puntos fijos, los focos A y B, es siempre la misma. Es como una circunferencia estirada: si los dos focos se juntan, se convierte en circunferencia.',
+ im:'El método del jardinero: clavás dos estacas, atás entre ellas un hilo flojo y das la vuelta con un palo manteniendo el hilo tirante. Lo que dibujás es una elipse.',
+ pr:['PA + PB es igual al largo del hilo para todos los puntos de la curva.','El largo del hilo es igual al ancho total de la elipse (su eje mayor).','Las órbitas de los planetas son elipses con el Sol en uno de los focos.'],
+ f:'PA + PB = constante',
+ ej:'Si el hilo mide 10 cm, para cualquier punto P de la elipse, PA + PB = 10 cm.',
+ u:'Si un triángulo tiene dos vértices en los focos, su perímetro no cambia al mover el tercero sobre la curva.',
+ ojo:'Pensar que los focos están en el borde. Están adentro, sobre el eje mayor.'},
+{id:'invariante',cat:'Ideas de olimpíada',t:'Invariante',
+ d:'Un invariante es algo que no cambia aunque muevas o transformes una parte de la figura. Encontrar qué se mantiene igual suele ser la clave escondida de un problema.',
+ im:'Si cambiás los muebles de lugar, la superficie de tu pieza sigue siendo la misma.',
+ pr:['Triángulos con la misma base y el vértice sobre una paralela a la base tienen la misma área.','Los ángulos inscritos sobre un mismo arco miden lo mismo aunque muevas el vértice.','En una elipse, PA + PB no cambia.'],
+ ej:'Si el vértice de un triángulo de base 12 cm se mueve sobre una paralela a 5 cm de la base, el área siempre es 30 cm².',
+ u:'En GeoGebra o en el laboratorio, arrastrá un punto y mirá qué medida se queda quieta: eso es lo que tenés que explicar.',
+ ojo:'Si el enunciado no dice dónde está un punto y aun así pide un número, casi seguro hay un invariante. No inventes una posición: buscalo.'},
+{id:'construccion',cat:'Ideas de olimpíada',t:'Construir no es dibujar',
+ d:'Construir con regla y compás significa que la figura cumple la propiedad por la forma en que la hiciste, no porque quedó bien a ojo. La regla solo traza rectas, no mide. El compás traza circunferencias y traslada medidas.',
+ im:'Es como seguir una receta: si respetás los pasos, el resultado sale bien siempre, aunque cambien las cantidades.',
+ pr:['Regla sin marcas: rectas que pasan por dos puntos.','Compás: circunferencias con un centro dado; sirve para copiar distancias.','Prueba de oro en GeoGebra: arrastrá los puntos libres. Si la propiedad se mantiene, es una construcción.'],
+ ej:'El triángulo equilátero del dibujo se construye con dos circunferencias de radio AB, centradas en A y en B. C es donde se cortan.',
+ u:'En el laboratorio, al terminar cada construcción, arrastrá los puntos azules para comprobarla.',
+ ojo:'Medir con regla o transportador cuando el problema pide construir.',lab:'eq'}
 ];
+GLOSS.forEach(g=>{g.fig=FIG[g.id];});
+Object.entries({'base-media':'varig','regular':'hex','inscrito':'tales','tangentes':'tang','mediana':'bari','angulos-pares':'d-60','rectas-posiciones':'d-cerca'}).forEach(([k,v])=>{const g=GLOSS.find(x=>x.id===k);if(g)g.lab=v;});
+
 
 const PHASES=[
 {t:'Entender',que:'Qué te dan y qué te piden.',items:['Leé dos veces. Subrayá cada dato con un color y lo que te piden con otro.','Escribí con tus palabras qué hay que encontrar.','Fijate si hay palabras clave: "isósceles", "punto medio", "paralela", "regular", "inscrito".']},
@@ -538,7 +1032,8 @@ const dias=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'
 document.getElementById('hoy-date').textContent=`${dias[now.getDay()]} ${now.getDate()} de ${meses[now.getMonth()]}`;
 const hp=document.getElementById('hoy-probs');daily.forEach(p=>renderProblem(p,hp));
 const cg=GLOSS[dayNum%GLOSS.length];
-document.getElementById('hoy-concept').innerHTML=`<span class="eyebrow">Concepto del día</span><h3>${esc(cg.t)}</h3><p>${esc(cg.d)}</p>${cg.f?`<span class="formula" style="display:inline-block;padding:4px 10px;border-radius:8px;background:var(--accent-soft);color:var(--accent);font-weight:700">${esc(cg.f)}</span>`:''}`;
+document.getElementById('hoy-concept').innerHTML=`<span class="eyebrow">Concepto del día</span><h3>${esc(cg.t)}</h3>${cg.fig?`<div class="figbox">${cg.fig()}</div>`:''}<p>${esc(cg.d)}</p><button class="btn ghost small" id="go-concept">Ver la ficha completa</button>`;
+document.getElementById('go-concept').addEventListener('click',()=>openGloss(cg.id));
 const omaP=byLevel[3][dayNum%byLevel[3].length];
 document.getElementById('hoy-oma').innerHTML=`<span class="eyebrow">Problema OMA del día</span><h3>${esc(omaP.t)}</h3><p>${esc(omaP.q.length>140?omaP.q.slice(0,140).replace(/\s\S*$/,'')+'…':omaP.q)}</p><button class="btn small" id="go-oma">Resolverlo</button>`;
 const tip=TRICKS[dayNum%TRICKS.length];
@@ -559,13 +1054,31 @@ document.querySelectorAll('#lvl-switch button').forEach(b=>b.addEventListener('c
 renderList();
 
 /* Glosario */
-function renderGloss(f=''){const g=document.getElementById('gloss');const q=f.toLowerCase();
-  g.innerHTML=GLOSS.filter(x=>!q||(x.t+x.d+x.cat).toLowerCase().includes(q)).map(x=>`<article class="term" id="g-${x.id}"><span class="cat">${esc(x.cat)}</span><h3>${esc(x.t)}</h3><p>${esc(x.d)}</p>${x.f?`<span class="formula">${esc(x.f)}</span>`:''}<p class="use"><b>Para qué sirve:</b> ${esc(x.u)}</p>${x.lab?`<p><button class="btn ghost small" data-lab="${x.lab}">Construirlo en el laboratorio</button></p>`:''}</article>`).join('')||'<p class="note">No encontré nada con esa palabra.</p>';
+const GCATS=[...new Set(GLOSS.map(x=>x.cat))];let gCat='Todos';
+function termHTML(x){return `<article class="term" id="g-${x.id}">
+ <div><span class="cat">${esc(x.cat)}</span><h3>${esc(x.t)}</h3></div>
+ ${x.fig?`<div class="figbox">${x.fig()}</div>`:''}
+ <p class="def">${esc(x.d)}</p>
+ ${x.im?`<div class="imag"><span class="lbl">Imaginalo así</span>${esc(x.im)}</div>`:''}
+ ${x.pr?`<div class="props"><span class="lbl">Propiedades clave</span><ul>${x.pr.map(p=>`<li>${esc(p)}</li>`).join('')}</ul></div>`:''}
+ ${x.f?`<span class="formula">${esc(x.f)}</span>`:''}
+ ${x.ej?`<div class="ej"><span class="lbl">Ejemplo</span>${esc(x.ej)}</div>`:''}
+ <p class="use"><span class="lbl">Para qué te sirve</span>${esc(x.u)}</p>
+ ${x.ojo?`<p class="ojo"><span class="lbl">Ojo con este error</span>${esc(x.ojo)}</p>`:''}
+ ${x.lab?`<p><button class="btn ghost small" data-lab="${x.lab}">Construirlo en el laboratorio</button></p>`:''}
+</article>`;}
+function renderGloss(f){if(f===undefined)f=document.getElementById('gl-search').value;const q=f.trim().toLowerCase();const g=document.getElementById('gloss');
+  const hit=x=>!q||[x.t,x.d,x.cat,x.im,x.ej,x.u,x.ojo,x.f,(x.pr||[]).join(' ')].join(' ').toLowerCase().includes(q);
+  const html=GCATS.filter(c=>gCat==='Todos'||c===gCat).map(c=>{const items=GLOSS.filter(x=>x.cat===c&&hit(x));if(!items.length)return'';
+    return `<section class="gcat"><h3 class="gcat-h">${esc(c)} <small>${items.length} ${items.length===1?'concepto':'conceptos'}</small></h3><div class="gcat-grid">${items.map(termHTML).join('')}</div></section>`;}).join('');
+  g.innerHTML=html||'<p class="note" style="margin-top:20px">No encontré nada con esa palabra. Probá con otra o elegí "Todos".</p>';
   g.querySelectorAll('[data-lab]').forEach(b=>b.addEventListener('click',()=>{loadCons(b.dataset.lab);show('laboratorio');}));}
+function renderChips(){document.getElementById('gchips').innerHTML=['Todos',...GCATS].map(c=>`<button type="button" data-c="${esc(c)}" aria-pressed="${c===gCat}">${esc(c)}</button>`).join('');
+  document.querySelectorAll('#gchips button').forEach(b=>b.addEventListener('click',()=>{gCat=b.dataset.c;renderChips();renderGloss();}));}
 document.getElementById('gl-search').addEventListener('input',e=>renderGloss(e.target.value));
-function openGloss(id){document.getElementById('gl-search').value='';renderGloss();show('glosario');
-  const t=document.getElementById('g-'+id);if(t){t.scrollIntoView({block:'center'});t.classList.add('flash');setTimeout(()=>t.classList.remove('flash'),1800);}}
-renderGloss();
+function openGloss(id){document.getElementById('gl-search').value='';gCat='Todos';renderChips();renderGloss('');show('glosario');
+  const t=document.getElementById('g-'+id);if(t){t.scrollIntoView({block:'start'});t.classList.add('flash');setTimeout(()=>t.classList.remove('flash'),1800);}}
+renderChips();renderGloss('');
 
 /* Estrategias */
 document.getElementById('go-oma').addEventListener('click',()=>{curLevel=3;curProb=omaP.id;document.querySelectorAll('#lvl-switch button').forEach(x=>x.setAttribute('aria-pressed',+x.dataset.l===3));renderList();show('practica');});
@@ -741,8 +1254,91 @@ function rename(o,L){if(o.label===L)return;const other=objs.find(x=>x.type==='po
 const P=(x,y,label)=>add({type:'point',kind:'free',x,y,label,locked:true});
 const S=(a,b)=>add({type:'segment',p1:a.id,p2:b.id,locked:true});
 
+/* ---------- Desafíos: sin pasos, con verificación por movimiento ---------- */
+const ptsOK=()=>objs.filter(o=>o.type==='point'&&o.ok);
+const dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
+const near=(x,y,tol=1.6)=>ptsOK().some(p=>Math.hypot(p.x-x,p.y-y)<tol);
+function distLine(p,a,b){return Math.abs((b.x-a.x)*(a.y-p.y)-(a.x-p.x)*(b.y-a.y))/Math.hypot(b.x-a.x,b.y-a.y);}
+const CHAL=[
+{id:'d-cuartos',lvl:0,t:'Cuatro partes iguales',
+ que:'Marcá los puntos que dividen al segmento AB en 4 partes exactamente iguales.',
+ cuando:'Partir en mitades una y otra vez es la base de muchas construcciones y de los problemas de áreas.',
+ setup(){const A=P(200,300,'A'),B=P(600,300,'B');S(A,B);return{A:A.id,B:B.id};},
+ test(g){const A=byId(g.A),B=byId(g.B);return[.25,.5,.75].every(t=>near(A.x+t*(B.x-A.x),A.y+t*(B.y-A.y)));},
+ hints:['¿Qué herramienta parte un segmento exactamente en dos?','Primero marcá el punto medio M de AB. Ahora pensá en AM y MB como dos segmentos nuevos.','Punto medio de A y M, y punto medio de M y B.'],
+ done:'<b>¡Construido!</b> Mitad de la mitad: 2, 4, 8, 16 partes… Siempre potencias de 2.',
+ think:[{q:'¿Se puede dividir un segmento en 3 partes iguales con estas herramientas?',a:'Sí, pero hace falta otra idea: trazar una semirrecta desde A, marcar tres pasos iguales con el compás y usar paralelas (teorema de Tales). Probalo en la pizarra libre.'}]},
+{id:'d-cerca',lvl:0,t:'El camino más corto',
+ que:'P quiere llegar a la ruta (la recta AB) caminando lo menos posible. Marcá el punto H de la ruta adonde tiene que ir.',
+ cuando:'La distancia de un punto a una recta aparece en áreas, alturas y tangentes.',
+ setup(){const A=P(130,380,'A'),B=P(670,330,'B');add({type:'line',p1:A.id,p2:B.id,locked:true});const Q=P(360,130,'P');return{A:A.id,B:B.id,P:Q.id};},
+ test(g){const A=byId(g.A),B=byId(g.B),Q=byId(g.P);const bx=B.x-A.x,by=B.y-A.y,L=Math.hypot(bx,by);
+   return ptsOK().some(h=>h.id!==g.P&&h.id!==g.A&&h.id!==g.B&&distLine(h,A,B)<1.6&&Math.abs(((h.x-Q.x)*bx+(h.y-Q.y)*by)/(L*Math.max(1,dist(h,Q))))<0.01);},
+ hints:['El camino más corto forma un ángulo especial con la ruta. ¿Cuál?','Es un ángulo recto. ¿Qué herramienta traza una recta que forme 90° con otra?','Perpendicular a la ruta que pase por P. Después marcá el cruce con la ruta.'],
+ done:'<b>¡Construido!</b> H es el pie de la perpendicular. Cualquier otro punto X de la ruta queda más lejos: PX es la hipotenusa del triángulo rectángulo PHX, y la hipotenusa es el lado más largo.',
+ think:[{q:'Si P se acerca a la ruta, ¿qué pasa con PH?',a:'Se achica hasta llegar a 0 cuando P está sobre la ruta. Probalo arrastrando P.'}]},
+{id:'d-pueblos',lvl:1,t:'La antena de los tres pueblos',
+ que:'Tres pueblos A, B y C quieren poner una antena que quede a la misma distancia de los tres. Marcá dónde va.',
+ cuando:'Es la idea detrás del circuncentro y de todos los problemas de "igual distancia".',
+ setup(){const A=P(220,370,'A'),B=P(590,390,'B'),C=P(430,120,'C');return{A:A.id,B:B.id,C:C.id};},
+ test(g){const A=byId(g.A),B=byId(g.B),C=byId(g.C);return ptsOK().some(o=>![g.A,g.B,g.C].includes(o.id)&&Math.abs(dist(o,A)-dist(o,B))<1.8&&Math.abs(dist(o,B)-dist(o,C))<1.8);},
+ hints:['Pensá primero solo en A y B: ¿dónde están todos los puntos que quedan a la misma distancia de los dos?','Forman la mediatriz de AB. Hacé lo mismo con B y C: la antena tiene que estar en las dos.','Trazá los segmentos AB y BC. Para cada uno: punto medio y perpendicular por ese punto. El cruce de las dos rectas es la antena.'],
+ done:'<b>¡Construido!</b> Encontraste el circuncentro. Si trazás la circunferencia con centro en la antena que pasa por A, pasa también por B y por C.',
+ think:[{q:'¿Y si los tres pueblos estuvieran alineados?',a:'No se puede: las dos mediatrices serían paralelas y nunca se cortarían.'},{q:'Arrastrá C hasta que el triángulo tenga un ángulo obtuso. ¿Dónde queda la antena?',a:'Afuera del triángulo. En un triángulo rectángulo queda justo en el medio del lado más largo.'}]},
+{id:'d-60',lvl:1,t:'60° sin transportador',
+ que:'Marcá un punto P tal que el ángulo AOP mida exactamente 60°. Prohibido el transportador: solo regla y compás.',
+ cuando:'Con el ángulo de 60° salen los de 30°, 120°, 15°… y los polígonos regulares de 3, 6 y 12 lados.',
+ setup(){const O=P(260,350,'O'),A=P(460,350,'A');S(O,A);return{O:O.id,A:A.id};},
+ test(g){const O=byId(g.O),A=byId(g.A);const a1=Math.atan2(A.y-O.y,A.x-O.x);
+   return ptsOK().some(p=>p.id!==g.O&&p.id!==g.A&&dist(p,O)>5&&(()=>{let d=Math.abs(Math.atan2(p.y-O.y,p.x-O.x)-a1);if(d>Math.PI)d=2*Math.PI-d;return Math.abs(d*180/Math.PI-60)<0.3;})());},
+ hints:['¿Qué figura tiene todos sus ángulos de 60°?','Un triángulo equilátero. Su lado puede ser OA.','Circunferencia con centro O que pasa por A, circunferencia con centro A que pasa por O. Uno de los cruces es P.'],
+ done:'<b>¡Construido!</b> OAP es un triángulo equilátero: OP = OA porque son radios de la primera circunferencia, y AP = AO por la segunda.',
+ think:[{q:'¿Cómo harías ahora un ángulo de 30°?',a:'Con la bisectriz del ángulo de 60°.'},{q:'¿Y uno de 120°?',a:'Pegando dos ángulos de 60° (otro equilátero al lado), o con el suplemento de 60° sobre la recta OA.'}]},
+{id:'d-cuadrado',lvl:1,t:'Cuadrado desde su diagonal',
+ que:'AC es la diagonal de un cuadrado. Encontrá los otros dos vértices.',
+ cuando:'Saber las propiedades de las diagonales destraba muchos problemas de cuadriláteros.',
+ setup(){const A=P(290,250,'A'),C=P(510,250,'C');S(A,C);return{A:A.id,C:C.id};},
+ test(g){const A=byId(g.A),C=byId(g.C),d=dist(A,C),s=d/Math.SQRT2;const c=ptsOK().filter(p=>Math.abs(dist(p,A)-s)<1.8&&Math.abs(dist(p,C)-s)<1.8);
+   return c.some(x=>c.some(y=>Math.abs(dist(x,y)-d)<2.5));},
+ hints:['¿Cómo son las dos diagonales de un cuadrado? Buscá tres propiedades.','Son iguales, perpendiculares y se cortan en el punto medio de las dos.','Perpendicular a AC por su punto medio M, y circunferencia con centro M que pase por A. Los dos cruces son los vértices que faltan.'],
+ done:'<b>¡Construido!</b> Usaste las tres propiedades a la vez: la otra diagonal pasa por M (punto medio), es perpendicular a AC y mide lo mismo (la circunferencia).',
+ think:[{q:'Si te pidieran un rombo con la diagonal AC, ¿qué cambiaría?',a:'La otra diagonal sigue siendo perpendicular y cortada al medio, pero puede tener cualquier largo: ya no hace falta la circunferencia.'},{q:'¿Y un rectángulo con diagonal AC?',a:'Hay infinitos: cualquier punto de la circunferencia de diámetro AC sirve como vértice (ángulo recto en la semicircunferencia).'}]},
+{id:'d-mitad',lvl:1,t:'Partir el triángulo en dos',
+ que:'Trazá una línea que salga del vértice C y parta al triángulo en dos partes de igual área.',
+ cuando:'Las áreas iguales con la misma altura son una idea clave de la olimpíada.',
+ setup(){const A=P(170,390,'A'),B=P(630,390,'B'),C=P(300,110,'C');S(A,B);S(B,C);S(C,A);return{A:A.id,B:B.id,C:C.id};},
+ test(g){const A=byId(g.A),B=byId(g.B),C=byId(g.C),M={x:(A.x+B.x)/2,y:(A.y+B.y)/2};
+   return objs.some(o=>o.ok&&(o.type==='segment'||o.type==='line')&&(()=>{const l=lineOf(o),a={x:l.x,y:l.y},b={x:l.x+l.dx,y:l.y+l.dy};return distLine(C,a,b)<1.6&&distLine(M,a,b)<1.6;})());},
+ hints:['Las dos partes son triángulos con un vértice en C. ¿Qué tienen en común sus alturas?','Las dos tienen la misma altura (la distancia de C a AB). Para tener igual área, ¿cómo tienen que ser sus bases?','Iguales: marcá el punto medio M de AB y uní C con M. Es la mediana.'],
+ done:'<b>¡Construido!</b> La mediana CM parte al triángulo en dos de igual área: misma altura y bases AM = MB.',
+ think:[{q:'¿Cómo lo partirías en tres partes de igual área, todas con vértice en C?',a:'Dividiendo AB en tres partes iguales y uniendo C con los dos puntos de división.'},{q:'¿Y si la línea tuviera que salir de un punto del lado AB que no es el punto medio? (Desafío extra)',a:'Hay una construcción con paralelas: uní ese punto con C, trazá por M la paralela a esa recta y usá su corte con el otro lado. Investigalo en la pizarra libre.'}]},
+{id:'d-incentro',lvl:2,t:'La circunferencia escondida',
+ que:'Construí la circunferencia que queda adentro del triángulo y toca sus tres lados.',
+ cuando:'El incentro aparece en muchos problemas de tangentes y ángulos.',
+ setup(){const A=P(190,390,'A'),B=P(620,390,'B'),C=P(330,110,'C');S(A,B);S(B,C);S(C,A);return{A:A.id,B:B.id,C:C.id};},
+ test(g){const A=byId(g.A),B=byId(g.B),C=byId(g.C);const sg=(p,q,r)=>(q.x-p.x)*(r.y-p.y)-(q.y-p.y)*(r.x-p.x);
+   return objs.some(o=>o.ok&&o.type==='circle'&&(()=>{const c=circleOf(o),I={x:c.x,y:c.y};const s1=sg(A,B,I),s2=sg(B,C,I),s3=sg(C,A,I);const inside=(s1>0&&s2>0&&s3>0)||(s1<0&&s2<0&&s3<0);
+     return inside&&c.r>5&&[distLine(I,A,B),distLine(I,B,C),distLine(I,C,A)].every(d=>Math.abs(d-c.r)<2);})());},
+ hints:['El centro tiene que estar a la misma distancia de los tres lados. ¿Qué recta tiene todos sus puntos a igual distancia de dos lados?','La bisectriz de un ángulo. Necesitás las bisectrices de dos ángulos del triángulo (la construcción guiada "Bisectriz" te recuerda cómo).','El cruce de las dos bisectrices es el centro I. Para el radio: perpendicular desde I a un lado, marcá el pie T y trazá la circunferencia con centro I que pasa por T.'],
+ done:'<b>¡Construido!</b> Encontraste el incentro y la circunferencia inscrita. El radio IT es perpendicular al lado, por eso la circunferencia lo toca en un solo punto.',
+ think:[{q:'¿Puede el incentro quedar afuera del triángulo?',a:'Nunca: las bisectrices de los ángulos interiores siempre se cortan adentro. (El circuncentro y el ortocentro sí pueden quedar afuera.)'}]}
+];
+CHAL.forEach(c=>{c.group='desafio';c.steps=[];});
+
+/* ---------- Taller creativo ---------- */
+const RETOS=[
+ {t:'Flor de seis pétalos',d:'Dibujá una circunferencia. Sin cambiar el radio, centrá nuevas circunferencias en los cruces, una y otra vez. ¿Cuántos pétalos aparecen? ¿Qué polígono se esconde entre los centros?',i:'Usá siempre un punto de la circunferencia anterior como centro y el centro anterior como punto por donde pasa. Aparece un hexágono regular.'},
+ {t:'Isósceles indestructible',d:'Construí un triángulo que siga siendo isósceles aunque muevas cualquiera de sus puntos azules.',i:'Poné el vértice de arriba sobre la mediatriz de la base, o usá una circunferencia: dos radios siempre son iguales.'},
+ {t:'Dos caminos, un cuadrado',d:'Encontrá dos formas distintas de construir un cuadrado. ¿Cuál usa menos pasos?',i:'Una con perpendiculares en los extremos de un lado; otra con las diagonales (iguales, perpendiculares y cortadas al medio).'},
+ {t:'El vértice viajero',d:'Construí un triángulo con base fija cuyo tercer vértice se pueda mover pero el área nunca cambie. Comprobalo moviéndolo.',i:'El vértice tiene que moverse sobre una paralela a la base: así la altura no cambia.'},
+ {t:'Rectángulo en la circunferencia',d:'Construí un rectángulo con sus cuatro vértices sobre una circunferencia. ¿Qué tienen de especial sus diagonales?',i:'Las diagonales del rectángulo son diámetros de la circunferencia. Trazá dos diámetros cualesquiera y uní sus extremos.'},
+ {t:'Tres en una',d:'Construí un triángulo y su circunferencia circunscrita. Después movelo hasta que el centro caiga justo sobre un lado. ¿Qué tipo de triángulo quedó?',i:'Queda un triángulo rectángulo: el lado donde está el centro es un diámetro.'},
+ {t:'Logo simétrico',d:'Diseñá un logo con no más de 4 circunferencias y 3 rectas que tenga un eje de simetría. Inventale un nombre.',i:'Empezá por el eje: todo lo que pongas de un lado, reflejalo del otro con la misma distancia al eje.'},
+ {t:'Inventá vos',d:'Armá una construcción propia, ponele nombre y explicale a alguien de tu familia por qué funciona, sin usar la palabra "porque se ve".',i:'Una buena explicación nombra la herramienta y la propiedad: "son iguales porque son radios de la misma circunferencia".'}
+];
+
 const CONS=[
-{id:'eq',t:'Triángulo equilátero',
+{id:'eq',lvl:0,think:[{q:'¿Cuánto mide cada ángulo del triángulo? ¿Cómo harías uno de 30° a partir de ahí?',a:'60°. Para 30° alcanza con la bisectriz de ese ángulo, o con la mediatriz de AB, que pasa por C.'},{q:'Si usás también el cruce de abajo de las dos circunferencias, ¿qué figura aparece?',a:'Otro equilátero hacia abajo. Juntos forman un rombo con ángulos de 60° y 120°.'}],t:'Triángulo equilátero',
  que:'Un triángulo con los tres lados iguales (y los tres ángulos de 60°), construido a partir de un segmento.',
  como:'Dos circunferencias con radio igual al segmento, una centrada en cada extremo. Donde se cortan está el tercer vértice.',
  cuando:'Cuando necesitás un ángulo de 60°, copiar una medida o armar un hexágono regular (que son 6 equiláteros).',
@@ -754,7 +1350,7 @@ const CONS=[
   {tool:'segment',txt:'Trazá los segmentos AC y BC.',hint:'Segmento: clic en A y en C. Después clic en B y en C.',check:g=>fSeg(g.A,g.C)&&fSeg(g.B,g.C)},
   {tool:'angle',txt:'Medí un ángulo del triángulo. ¿Cuánto da?',hint:'Ángulo: clic en B, después en A (el vértice va en el medio) y después en C.',check:g=>!!fAngle(null,[g.A,g.B,g.C])}],
  done:'<b>¡Listo!</b> AC mide lo mismo que AB porque los dos son radios de la primera circunferencia, y BC mide lo mismo que AB por la segunda. Por eso los tres lados son iguales. Ahora elegí <b>Mover</b> y arrastrá A o B: el triángulo cambia de tamaño pero sigue siendo equilátero, y el ángulo sigue marcando 60°.'},
-{id:'med',t:'Mediatriz',
+{id:'med',lvl:0,think:[{q:'¿Hace falta que las dos circunferencias tengan radio AB?',a:'No. Alcanza con que tengan el mismo radio y que se corten (el radio tiene que ser mayor que la mitad de AB).'},{q:'Te dan una circunferencia sin el centro marcado. ¿Cómo lo encontrás?',a:'Marcá tres puntos sobre ella, trazá las mediatrices de dos cuerdas y buscá dónde se cortan.'}],t:'Mediatriz',
  que:'La recta perpendicular a un segmento que pasa por su punto medio.',
  como:'Dos circunferencias iguales centradas en los extremos. La recta que une sus dos cruces es la mediatriz.',
  cuando:'Para encontrar el punto medio, un ángulo recto, o un punto que esté a la misma distancia de A y de B.',
@@ -767,7 +1363,7 @@ const CONS=[
   {tool:'point',txt:'Marcá el punto donde la mediatriz corta al segmento AB.',hint:'Con Punto, clic justo en el cruce entre la recta y el segmento.',check:g=>{const ps=fInter(g.m,g.s);if(ps.length){rename(ps[0],'M');g.M=ps[0].id;return true;}}},
   {tool:'angle',txt:'Medí el ángulo entre la mediatriz y el segmento.',hint:'Ángulo: clic en A, después en M (el vértice) y después en C.',check:g=>!!objs.find(o=>o.type==='angle'&&o.ok&&o.v===g.M)}],
  done:'<b>¡Listo!</b> El ángulo da 90° y M es el punto medio de AB (activá <b>Medidas</b> y trazá AM y MB para comprobarlo). Cualquier punto de la mediatriz está a la misma distancia de A que de B: probá trazar CA y CB. Arrastrá A o B y mirá que todo se sigue cumpliendo.'},
-{id:'bis',t:'Bisectriz',
+{id:'bis',lvl:1,think:[{q:'¿Cómo partirías un ángulo en cuatro partes iguales?',a:'Con la bisectriz y después la bisectriz de cada mitad.'},{q:'¿Qué pasa si trazás las bisectrices de dos ángulos de un triángulo?',a:'Se cortan en el incentro, el centro de la circunferencia que toca los tres lados. Es el desafío "La circunferencia escondida".'}],t:'Bisectriz',
  que:'La semirrecta que parte un ángulo en dos ángulos iguales.',
  como:'Una circunferencia desde el vértice marca un punto en cada lado. Desde esos dos puntos, dos circunferencias iguales se cortan sobre la bisectriz.',
  cuando:'Cuando el enunciado dice "divide el ángulo en dos partes iguales", o para hallar el incentro (centro de la circunferencia inscrita).',
@@ -781,7 +1377,7 @@ const CONS=[
   {tool:'line',txt:'Trazá la recta AE: es la bisectriz.',hint:'Recta: clic en A y en E.',check:g=>!!fLin(['line','segment'],g.A,g.E)},
   {tool:'angle',txt:'Medí los ángulos BAE y EAC. ¿Qué notás?',hint:'Ángulo: B, A, E. Después otro: E, A, C.',check:g=>!!fAngle(g.A,[g.B,g.A,g.E])&&!!fAngle(g.A,[g.E,g.A,g.C])}],
  done:'<b>¡Listo!</b> Los dos ángulos miden lo mismo. AB = AD (son radios) y BE = DE (radios iguales), así que los triángulos ABE y ADE son iguales: por eso el ángulo quedó partido en dos mitades. Arrastrá C para abrir o cerrar el ángulo.'},
-{id:'sq',t:'Cuadrado sobre un lado',
+{id:'sq',lvl:1,think:[{q:'¿Cómo cambiarías los pasos para obtener un rectángulo cuyo lado vertical mida el doble que AB?',a:'Copiá AB dos veces sobre cada perpendicular: una circunferencia y después otra centrada en el punto que obtuviste.'},{q:'¿Hay otra forma de hacer el cuadrado?',a:'Sí, con sus diagonales: son iguales, perpendiculares y se cortan en su punto medio. Probalo en el desafío "Cuadrado desde su diagonal".'}],t:'Cuadrado sobre un lado',
  que:'Un cuadrado construido a partir de uno de sus lados.',
  como:'Perpendiculares al lado por cada extremo, y circunferencias para copiar la medida del lado sobre ellas.',
  cuando:'Cuando hay que dibujar cuadrados exactos, ángulos rectos o copiar una medida en otra dirección.',
@@ -795,7 +1391,7 @@ const CONS=[
   {tool:'point',txt:'Marcá el cruce de la última circunferencia con la perpendicular por A (el de arriba).',hint:'Con Punto, clic en el cruce de arriba, sobre la línea vertical de A.',check:g=>{const ps=fInter(g.c2,g.pA).filter(p=>p.y<byId(g.A).y);if(ps.length){rename(ps[0],'D');g.D=ps[0].id;return true;}}},
   {tool:'segment',txt:'Cerrá el cuadrado: segmentos BC, CD y DA.',hint:'Tres segmentos: B–C, C–D y D–A.',check:g=>fSeg(g.B,g.C)&&fSeg(g.C,g.D)&&fSeg(g.D,g.A)}],
  done:'<b>¡Listo!</b> Los cuatro ángulos son rectos (por las perpendiculares) y los cuatro lados miden lo mismo (por las circunferencias). Arrastrá A o B: el cuadrado gira y cambia de tamaño, pero siempre es un cuadrado.'},
-{id:'circ',t:'Circunferencia por tres puntos',
+{id:'circ',lvl:2,think:[{q:'¿Hace falta trazar la tercera mediatriz?',a:'No. Si O está a igual distancia de A y de B, y de B y de C, también lo está de A y de C: la tercera mediatriz pasa sí o sí por O.'},{q:'¿En qué tipo de triángulo O cae justo sobre un lado?',a:'En el triángulo rectángulo: O es el punto medio de la hipotenusa.'}],t:'Circunferencia por tres puntos',
  que:'La circunferencia que pasa por los tres vértices de un triángulo (circunscrita). Su centro es el circuncentro.',
  como:'Trazá las mediatrices de dos lados. Donde se cortan está el centro.',
  cuando:'Cuando necesitás un punto a igual distancia de tres puntos, o la circunferencia que pasa por los vértices.',
@@ -808,30 +1404,128 @@ const CONS=[
   {tool:'point',txt:'Marcá el punto donde se cortan las dos mediatrices.',hint:'Con Punto, clic en el cruce de las dos rectas.',check:g=>{const ps=fInter(g.m1,g.m2);if(ps.length){rename(ps[0],'O');g.O=ps[0].id;return true;}}},
   {tool:'circle',txt:'Circunferencia con centro en O que pasa por A.',hint:'Clic en O y después en A.',check:g=>!!fCirc(g.O,g.A)}],
  done:'<b>¡Listo!</b> La circunferencia pasa también por B y por C. O está en las dos mediatrices, así que está a la misma distancia de A, de B y de C. Probá arrastrar C: si el triángulo tiene un ángulo obtuso, O queda afuera; si tiene un ángulo recto, O cae justo en el medio del lado más largo.'},
-{id:'free',t:'Pizarra libre',que:'Una hoja en blanco con todas las herramientas.',como:'Dibujá la figura de un problema y medí. Después intentá explicar por qué da lo que da.',cuando:'Para comprobar una respuesta o investigar qué pasa al mover un punto (por ejemplo, el problema "El punto viajero").',setup(){return{};},steps:[],done:''}
+{id:'hex',lvl:0,t:'Hexágono regular con compás',
+ que:'Un hexágono regular dibujado dentro de una circunferencia, usando solo el compás con la misma abertura todo el tiempo.',
+ como:'El lado del hexágono regular mide lo mismo que el radio. Entonces, con la abertura del radio, se "camina" por la circunferencia marcando los seis vértices.',
+ cuando:'Para dibujar hexágonos, triángulos equiláteros inscritos, estrellas de seis puntas y ángulos de 60° y 120°.',
+ setup(){const O=P(400,250,'O'),A=P(500,250,'A');return{O:O.id,A:A.id};},
+ steps:[
+  {tool:'circle',txt:'Circunferencia con centro O que pasa por A.',hint:'Clic en O y después en A.',check:g=>{const c=fCirc(g.O,g.A);if(c){g.c1=c.id;return true;}}},
+  {tool:'circle',txt:'Circunferencia con centro A que pasa por O. Tiene el mismo radio que la primera.',hint:'Clic en A y después en O.',check:g=>{const c=fCirc(g.A,g.O);if(c){g.c2=c.id;return true;}}},
+  {tool:'point',txt:'Marcá los dos cruces de esas circunferencias: B arriba y F abajo.',hint:'Con Punto, clic en cada cruce.',check:g=>{const ps=fInter(g.c1,g.c2);if(ps.length>=2){ps.sort((a,b)=>a.y-b.y);rename(ps[0],'B');rename(ps[1],'F');g.B=ps[0].id;g.F=ps[1].id;return true;}}},
+  {tool:'circle',txt:'Circunferencia con centro B que pasa por O, y otra con centro F que pasa por O.',hint:'Dos circunferencias: clic en B y en O; después clic en F y en O.',check:g=>{const a=fCirc(g.B,g.O),b=fCirc(g.F,g.O);if(a&&b){g.c3=a.id;g.c4=b.id;return true;}}},
+  {tool:'point',txt:'Marcá C, donde la circunferencia de B vuelve a cortar a la primera (a la izquierda), y E, donde lo hace la de F.',hint:'Con Punto: el cruce nuevo cerca de arriba a la izquierda es C; el de abajo a la izquierda es E. El otro cruce de cada una es A, que ya está.',
+   check:g=>{const A=byId(g.A);const far=p=>Math.hypot(p.x-A.x,p.y-A.y)>4;const c=fInter(g.c1,g.c3).filter(far),e=fInter(g.c1,g.c4).filter(far);if(c.length&&e.length){rename(c[0],'C');rename(e[0],'E');g.C=c[0].id;g.E=e[0].id;return true;}}},
+  {tool:'line',txt:'Trazá la recta AO y marcá D, donde corta a la primera circunferencia del otro lado.',hint:'Recta: clic en A y en O. Después, con Punto, clic en el cruce de la izquierda.',
+   check:g=>{const l=fLin(['line','segment'],g.A,g.O);if(!l)return false;const A=byId(g.A);const d=fInter(l.id,g.c1).filter(p=>Math.hypot(p.x-A.x,p.y-A.y)>4);if(d.length){rename(d[0],'D');g.D=d[0].id;return true;}}},
+  {tool:'segment',txt:'Uní A, B, C, D, E y F con seis segmentos, en orden.',hint:'Segmentos AB, BC, CD, DE, EF y FA.',check:g=>['A','B','C','D','E','F'].every((k,i,arr)=>fSeg(g[k],g[arr[(i+1)%6]]))}],
+ done:'<b>¡Listo!</b> Cada lado mide lo mismo que el radio, porque todas las circunferencias que usaste tienen ese radio. Por eso los seis triángulos con vértice en O son equiláteros. Arrastrá A: el hexágono gira y cambia de tamaño, pero sigue siendo regular.',
+ think:[{q:'¿Cómo dibujarías un triángulo equilátero dentro de la misma circunferencia sin trazar nada nuevo?',a:'Uniendo vértices salteados: A, C y E, o B, D y F.'},{q:'¿Cuánto mide cada ángulo del hexágono? Explicalo con los triángulos equiláteros.',a:'120°: en cada vértice se juntan dos ángulos de 60°, uno de cada triángulo equilátero vecino.'},{q:'¿Cómo harías un dodecágono regular (12 lados)?',a:'Trazá las mediatrices de los lados del hexágono: cortan a la circunferencia en el medio de cada arco y te dan los 6 vértices que faltan.'}]},
+{id:'tales',lvl:1,t:'Ángulo recto en la semicircunferencia',
+ que:'Un descubrimiento: cualquier punto de una circunferencia "ve" al diámetro con un ángulo recto.',
+ como:'Se dibuja la circunferencia que tiene a AB como diámetro y se elige un punto P que se pueda mover sobre ella. Después se mide el ángulo APB.',
+ cuando:'Para construir ángulos rectos, reconocer triángulos rectángulos escondidos y trazar tangentes.',
+ setup(){const A=P(250,340,'A'),B=P(550,340,'B');const s=S(A,B);return{A:A.id,B:B.id,s:s.id};},
+ steps:[
+  {tool:'mid',txt:'Marcá el punto medio M del segmento AB.',hint:'Punto medio: clic sobre el segmento AB.',check:g=>{const m=fMid(g.A,g.B);if(m){rename(m,'M');g.M=m.id;return true;}}},
+  {tool:'circle',txt:'Circunferencia con centro M que pasa por A. AB es su diámetro.',hint:'Clic en M y después en A.',check:g=>{const c=fCirc(g.M,g.A);if(c){g.c=c.id;return true;}}},
+  {tool:'point',txt:'Marcá un punto Q suelto en cualquier lugar arriba del segmento. Va a servir de "manija".',hint:'Con Punto, clic en un lugar vacío, lejos de las líneas.',check:g=>{const q=objs.filter(o=>o.type==='point'&&o.kind==='free'&&!o.locked&&o.ok).pop();if(q){rename(q,'Q');g.Q=q.id;return true;}}},
+  {tool:'line',txt:'Trazá la recta AQ.',hint:'Recta: clic en A y en Q.',check:g=>{const l=fLin(['line'],g.A,g.Q);if(l){g.l=l.id;return true;}}},
+  {tool:'point',txt:'Marcá P, donde la recta AQ corta a la circunferencia (el cruce que no es A).',hint:'Con Punto, clic justo en ese cruce.',check:g=>{const A=byId(g.A);const ps=fInter(g.l,g.c).filter(p=>Math.hypot(p.x-A.x,p.y-A.y)>4);if(ps.length){rename(ps[0],'P');g.P=ps[0].id;return true;}}},
+  {tool:'segment',txt:'Trazá los segmentos PA y PB.',hint:'Segmento: P–A y P–B.',check:g=>fSeg(g.P,g.A)&&fSeg(g.P,g.B)},
+  {tool:'angle',txt:'Medí el ángulo APB. Después arrastrá Q y mirá qué pasa.',hint:'Ángulo: clic en A, después en P (el vértice) y después en B.',check:g=>!!fAngle(g.P,[g.A,g.P,g.B])}],
+ done:'<b>¡90°, y no cambia!</b> Movés Q, P recorre la circunferencia y el ángulo sigue siendo recto. Es el ángulo inscrito que abarca media circunferencia: mide la mitad del central, que es llano (180°). Este resultado se conoce como teorema de Tales.',
+ think:[{q:'Poné un punto suelto adentro de la circunferencia y medí el ángulo desde ahí. ¿Y afuera?',a:'Adentro da más de 90° (obtuso) y afuera da menos (agudo). Solo sobre la circunferencia da exactamente 90°.'},{q:'Te dicen que un triángulo es rectángulo. ¿Dónde está el centro de la circunferencia que pasa por sus tres vértices?',a:'En el punto medio de la hipotenusa, porque la hipotenusa es un diámetro.'}]},
+{id:'bari',lvl:1,t:'Baricentro: la regla del 2 a 1',
+ que:'El punto donde se cruzan las medianas de un triángulo, y una medida sorprendente que siempre se cumple.',
+ como:'Se marcan los puntos medios de dos lados, se trazan las dos medianas y se busca dónde se cortan. Después se comparan los dos pedazos de una mediana.',
+ cuando:'En problemas de áreas con medianas y para encontrar el punto de equilibrio de una figura.',
+ setup(){const A=P(230,390,'A'),B=P(600,370,'B'),C=P(380,110,'C');S(A,B);S(B,C);S(C,A);return{A:A.id,B:B.id,C:C.id};},
+ steps:[
+  {tool:'mid',txt:'Marcá el punto medio M del lado BC.',hint:'Punto medio: clic sobre el segmento BC.',check:g=>{const m=fMid(g.B,g.C);if(m){rename(m,'M');g.M=m.id;return true;}}},
+  {tool:'segment',txt:'Trazá la mediana AM.',hint:'Segmento: A–M.',check:g=>{const s=fSeg(g.A,g.M);if(s){g.m1=s.id;return true;}}},
+  {tool:'mid',txt:'Marcá el punto medio N del lado AC.',hint:'Punto medio: clic sobre el segmento AC.',check:g=>{const m=fMid(g.A,g.C);if(m){rename(m,'N');g.N=m.id;return true;}}},
+  {tool:'segment',txt:'Trazá la mediana BN.',hint:'Segmento: B–N.',check:g=>{const s=fSeg(g.B,g.N);if(s){g.m2=s.id;return true;}}},
+  {tool:'point',txt:'Marcá G, donde se cortan las dos medianas.',hint:'Con Punto, clic en el cruce.',check:g=>{const ps=fInter(g.m1,g.m2);if(ps.length){rename(ps[0],'G');g.G=ps[0].id;return true;}}},
+  {tool:'segment',txt:'Trazá los segmentos AG y GM, y activá "Medidas" abajo del tablero. Compará los dos números.',hint:'Segmento A–G y segmento G–M. La casilla Medidas muestra el largo de cada segmento.',check:g=>fSeg(g.A,g.G)&&fSeg(g.G,g.M)}],
+ done:'<b>¡Listo!</b> AG mide exactamente el doble que GM. El baricentro corta a cada mediana en dos partes, y la del lado del vértice es el doble. Arrastrá A, B o C: los números cambian, pero la proporción 2 a 1 se mantiene.',
+ think:[{q:'¿La tercera mediana, de C al punto medio de AB, también pasa por G?',a:'Sí. Trazala y comprobalo: las tres medianas siempre se cortan en el mismo punto.'},{q:'Si recortaras el triángulo en cartón, ¿dónde lo apoyarías sobre la punta de un lápiz para que quede en equilibrio?',a:'En G. Por eso al baricentro también se lo llama centro de gravedad.'},{q:'Las tres medianas parten al triángulo en 6 triangulitos. ¿Cómo son sus áreas?',a:'Las seis son iguales, aunque los triangulitos tengan formas distintas.'}]},
+{id:'varig',lvl:1,t:'Puntos medios de un cuadrilátero',
+ que:'Una investigación: qué figura aparece cuando unís los puntos medios de los lados de un cuadrilátero cualquiera.',
+ como:'Se marcan los cuatro puntos medios, se unen en orden y se mueven los vértices para ver qué se mantiene.',
+ cuando:'En problemas con puntos medios, como el P02 de la OMA (paralelogramo de Varignon).',
+ setup(){const A=P(220,340,'A'),B=P(560,390,'B'),C=P(620,150,'C'),D=P(320,100,'D');S(A,B);S(B,C);S(C,D);S(D,A);return{A:A.id,B:B.id,C:C.id,D:D.id};},
+ steps:[
+  {tool:'mid',txt:'Marcá los puntos medios de los cuatro lados.',hint:'Punto medio: clic sobre cada uno de los cuatro segmentos.',
+   check:g=>{const m=[fMid(g.A,g.B),fMid(g.B,g.C),fMid(g.C,g.D),fMid(g.D,g.A)];if(m.every(Boolean)){['P','Q','R','S'].forEach((L,i)=>{rename(m[i],L);g[L]=m[i].id;});return true;}}},
+  {tool:'segment',txt:'Uní los puntos medios en orden: PQ, QR, RS y SP.',hint:'Cuatro segmentos: P–Q, Q–R, R–S y S–P.',check:g=>fSeg(g.P,g.Q)&&fSeg(g.Q,g.R)&&fSeg(g.R,g.S)&&fSeg(g.S,g.P)},
+  {tool:'segment',txt:'Trazá también las diagonales AC y BD del cuadrilátero grande.',hint:'Segmentos A–C y B–D.',check:g=>fSeg(g.A,g.C)&&fSeg(g.B,g.D)}],
+ done:'<b>Ahora investigá.</b> Elegí Mover y arrastrá A, B, C y D, incluso hasta deformar mucho el cuadrilátero. Activá Medidas. ¿Qué tipo de figura es PQRS siempre? Pensalo antes de abrir las respuestas de abajo.',
+ think:[{q:'¿Qué figura es PQRS siempre?',a:'Un paralelogramo. PQ y SR son bases medias de los triángulos ABC y ADC: las dos son paralelas a AC y miden la mitad de AC.'},{q:'¿Qué tiene que pasar con ABCD para que PQRS sea un rombo?',a:'Que las diagonales AC y BD midan lo mismo.'},{q:'¿Y para que sea un rectángulo?',a:'Que las diagonales AC y BD sean perpendiculares.'},{q:'Si las diagonales miden 8 y 6, ¿cuánto mide el perímetro de PQRS?',a:'Cada lado mide la mitad de una diagonal: 4 + 3 + 4 + 3 = 14.'}]},
+{id:'tang',lvl:2,t:'Tangentes desde un punto exterior',
+ que:'Las dos rectas que salen de un punto P y apenas tocan la circunferencia, sin entrar.',
+ como:'La tangente es perpendicular al radio en el punto de contacto. Ese ángulo recto se consigue con la circunferencia que tiene a OP como diámetro (ángulo recto en la semicircunferencia).',
+ cuando:'En problemas con circunferencias tangentes a rectas, poleas y correas, y para entender por qué los dos segmentos tangentes miden lo mismo.',
+ setup(){const O=P(290,260,'O'),R=P(390,260,'R');const c=add({type:'circle',c:O.id,p:R.id,locked:true});const Pp=P(630,200,'P');return{O:O.id,R:R.id,P:Pp.id,c:c.id};},
+ steps:[
+  {tool:'segment',txt:'Trazá el segmento OP.',hint:'Segmento: O–P.',check:g=>!!fSeg(g.O,g.P)},
+  {tool:'mid',txt:'Marcá el punto medio M de OP.',hint:'Punto medio: clic sobre el segmento OP.',check:g=>{const m=fMid(g.O,g.P);if(m){rename(m,'M');g.M=m.id;return true;}}},
+  {tool:'circle',txt:'Circunferencia con centro M que pasa por O. OP es su diámetro.',hint:'Clic en M y después en O.',check:g=>{const c=fCirc(g.M,g.O);if(c){g.c2=c.id;return true;}}},
+  {tool:'point',txt:'Marcá los dos puntos donde se cortan las dos circunferencias: T arriba y U abajo.',hint:'Con Punto, clic en los dos cruces.',check:g=>{const ps=fInter(g.c,g.c2);if(ps.length>=2){ps.sort((a,b)=>a.y-b.y);rename(ps[0],'T');rename(ps[1],'U');g.T=ps[0].id;g.U=ps[1].id;return true;}}},
+  {tool:'line',txt:'Trazá las rectas PT y PU. ¡Son las dos tangentes!',hint:'Recta: P–T y P–U.',check:g=>fLin(['line','segment'],g.P,g.T)&&fLin(['line','segment'],g.P,g.U)},
+  {tool:'angle',txt:'Comprobalo: trazá el radio OT y medí el ángulo OTP.',hint:'Segmento O–T. Después Ángulo: O, T (vértice) y P.',check:g=>fSeg(g.O,g.T)&&!!fAngle(g.T,[g.O,g.T,g.P])}],
+ done:'<b>¡90°!</b> T está sobre la circunferencia de diámetro OP, así que el ángulo OTP es recto. Una recta perpendicular al radio en su extremo toca la circunferencia en un solo punto: es tangente. Arrastrá P y fijate cómo las tangentes lo siguen.',
+ think:[{q:'Activá Medidas y trazá PT y PU como segmentos. ¿Qué notás? ¿Por qué pasa?',a:'Miden lo mismo. Los triángulos OTP y OUP son rectángulos, comparten la hipotenusa OP y tienen OT = OU (radios). Por Pitágoras, PT² = OP² − r² = PU².'},{q:'¿Qué pasa con las tangentes si acercás P hasta la circunferencia? ¿Y si lo metés adentro?',a:'Sobre la circunferencia, las dos se juntan en una sola. Adentro no hay tangentes: las circunferencias dejan de cortarse.'}]},
+{id:'free',group:'taller',t:'Pizarra libre y retos creativos',que:'Una hoja en blanco con todas las herramientas, y retos abiertos para inventar tus propias construcciones.',como:'No hay una única respuesta: elegí un reto, probá, mové los puntos y buscá explicar por qué funciona.',cuando:'Para comprobar una respuesta o investigar qué pasa al mover un punto (por ejemplo, el problema "El punto viajero").',setup(){return{};},steps:[],done:''}
 ];
-let curCons='eq',cons=null,hintStep=-1;
+CONS.forEach(c=>{if(!c.group)c.group='guia';});CONS.splice(CONS.length-1,0,...CHAL);
+const GROUPS=[['guia','Construcciones guiadas','Paso a paso, con la herramienta marcada.'],['desafio','Desafíos','Sin pasos: pensás vos la estrategia y la página comprueba si está bien construido.'],['taller','Taller creativo','Retos abiertos para inventar.']];
+let curCons='eq',cons=null,hintStep=-1,hintIdx=0,chalState='no';
 const pick=document.getElementById('cons-pick');
-CONS.forEach(c=>{const b=document.createElement('button');b.textContent=c.t;b.dataset.c=c.id;b.addEventListener('click',()=>loadCons(c.id));pick.appendChild(b);});
+if(!prog.lab)prog.lab={};
+function renderPick(){pick.innerHTML=GROUPS.map(([g,name,sub])=>`<div class="cgrp"><div class="cgrp-h"><span class="eyebrow">${name}</span><span class="note">${sub}</span></div><div class="cons-pick">${CONS.filter(c=>c.group===g).map(c=>`<button type="button" data-c="${c.id}" aria-pressed="${c.id===curCons}">${c.lvl!=null?`<i class="lvd l${c.lvl}" title="${LV[c.lvl]}"></i>`:''}${esc(c.t)}${prog.lab[c.id]?' <span class="okmark">✓</span>':''}</button>`).join('')}</div></div>`).join('');
+  pick.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>loadCons(b.dataset.c)));}
 function loadCons(id){curCons=id;cons=CONS.find(c=>c.id===id);objs=[];nextId=1;hist=[];pending=[];
-  cons.base=cons.setup();
-  document.querySelectorAll('#cons-pick button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.c===id));
-  document.getElementById('qcc').innerHTML=`<h3>${esc(cons.t)}</h3><div class="step-card"><b>Qué es</b><p>${esc(cons.que)}</p></div><div class="step-card sol"><b>Cómo se hace</b><p>${esc(cons.como)}</p></div><div class="step-card when"><b>Cuándo te sirve</b><p>${esc(cons.cuando)}</p></div>`;
+  cons.base=cons.setup();hintIdx=0;chalState='no';renderPick();
+  const lv=cons.lvl!=null?`<span class="lvl l${cons.lvl}">${LV[cons.lvl]}</span>`:'';
+  document.getElementById('qcc').innerHTML=cons.group==='desafio'
+   ?`<div class="prob-meta">${lv}<span class="tag">Desafío</span></div><h3>${esc(cons.t)}</h3><div class="step-card when"><b>Tu misión</b><p>${esc(cons.que)}</p></div><div class="step-card"><b>Por qué vale la pena</b><p>${esc(cons.cuando)}</p></div><p class="note">No hay pasos: elegí vos las herramientas. Si algo queda "a ojo", la página lo descubre moviendo los puntos dados.</p>`
+   :`<div class="prob-meta">${lv}</div><h3>${esc(cons.t)}</h3><div class="step-card"><b>Qué es</b><p>${esc(cons.que)}</p></div><div class="step-card sol"><b>Cómo se hace</b><p>${esc(cons.como)}</p></div><div class="step-card when"><b>Cuándo te sirve</b><p>${esc(cons.cuando)}</p></div>`;
   setTool(cons.steps.length?cons.steps[0].tool:'move');refreshLab();}
 function evalSteps(){if(!cons.steps.length)return 0;const g=Object.assign({},cons.base);let i=0;for(;i<cons.steps.length;i++){if(!cons.steps[i].check(g))break;}return i;}
-function refreshLab(){update();const cur=evalSteps();update();
-  const ol=document.getElementById('steps');const hasSteps=cons.steps.length>0;
-  document.getElementById('steps-title').textContent=hasSteps?`Pasos (${Math.min(cur,cons.steps.length)} de ${cons.steps.length})`:'Modo libre';
-  ol.innerHTML=hasSteps?cons.steps.map((s,i)=>`<li class="${i<cur?'done':i===cur?'cur':''}"><span class="k">${i<cur?'✓':i+1}</span><span>${esc(s.txt)}${i===cur?`<br><span class="toolchip">Herramienta: ${TOOLS.find(t=>t[0]===s.tool)[1]}</span>`:''}</span></li>`).join(''):`<li class="cur"><span class="k">∞</span><span>Elegí una herramienta y dibujá lo que quieras. Probá armar la figura de un problema de Práctica y medirla.</span></li>`;
-  const hb=document.getElementById('hint-btn'),ht=document.getElementById('hint-txt');
-  hb.hidden=!hasSteps||cur>=cons.steps.length;if(hintStep!==cur)ht.hidden=true;
-  document.querySelectorAll('.tool').forEach(b=>b.classList.toggle('suggest',hasSteps&&cur<cons.steps.length&&b.dataset.tool===cons.steps[cur].tool&&tool!==b.dataset.tool));
-  const dm=document.getElementById('done-msg');dm.hidden=!(hasSteps&&cur>=cons.steps.length);if(!dm.hidden)dm.innerHTML=cons.done;
+function chalCheck(){if(!cons.test(cons.base))return'no';
+  const base=objs.filter(o=>o.type==='point'&&o.kind==='free'&&o.locked);const saved=base.map(o=>[o.x,o.y]);const wasOk=new Set(objs.filter(o=>o.ok).map(o=>o.id));
+  const offs=[[12,-9],[-10,8],[7,13],[-9,-11]];let ok=true;
+  for(let k=0;k<4&&ok;k++){base.forEach((o,i)=>{const d=offs[(k+i)%4];o.x=Math.max(20,Math.min(W-20,saved[i][0]+d[0]));o.y=Math.max(20,Math.min(H-20,saved[i][1]+d[1]));});update();
+    if(objs.some(o=>wasOk.has(o.id)&&!o.ok))continue;if(!cons.test(cons.base))ok=false;}
+  base.forEach((o,i)=>{o.x=saved[i][0];o.y=saved[i][1];});update();return ok?'ok':'fragil';}
+function thinkHTML(){return cons.think&&cons.think.length?`<div class="think"><b>Para pensar</b>${cons.think.map(t=>`<details><summary>${esc(t.q)}</summary><p>${esc(t.a)}</p></details>`).join('')}</div>`:'';}
+function markLab(){if(!prog.lab[cons.id]){prog.lab[cons.id]=true;save();renderPick();}}
+function refreshLab(){update();const g=cons.group;const cur=evalSteps();update();
+  const ol=document.getElementById('steps'),hb=document.getElementById('hint-btn'),ht=document.getElementById('hint-txt'),dm=document.getElementById('done-msg'),title=document.getElementById('steps-title');
+  let finished=false;
+  if(g==='guia'){
+    title.textContent=`Pasos (${Math.min(cur,cons.steps.length)} de ${cons.steps.length})`;
+    ol.innerHTML=cons.steps.map((s,i)=>`<li class="${i<cur?'done':i===cur?'cur':''}"><span class="k">${i<cur?'✓':i+1}</span><span>${esc(s.txt)}${i===cur?`<br><span class="toolchip">Herramienta: ${TOOLS.find(t=>t[0]===s.tool)[1]}</span>`:''}</span></li>`).join('');
+    finished=cur>=cons.steps.length;hb.hidden=finished;hb.textContent='Necesito una pista';if(hintStep!==cur)ht.hidden=true;
+    document.querySelectorAll('.tool').forEach(b=>b.classList.toggle('suggest',cur<cons.steps.length&&b.dataset.tool===cons.steps[cur].tool&&tool!==b.dataset.tool));
+  }else if(g==='desafio'){
+    chalState=chalCheck();finished=chalState==='ok';title.textContent='Cómo vas';
+    const msg={no:['·','Todavía no está. Pensá qué propiedad tiene que cumplir lo que buscás y qué herramienta la obliga.'],fragil:['!','¡Casi! A la vista está bien, pero cuando se mueven los puntos dados deja de cumplirse: algo quedó dibujado a ojo. Usá herramientas que obliguen la propiedad.'],ok:['✓','¡Construcción correcta! Sigue funcionando aunque se muevan los puntos dados.']}[chalState];
+    ol.innerHTML=`<li class="${chalState==='ok'?'done':'cur'} st-${chalState}"><span class="k">${msg[0]}</span><span>${msg[1]}</span></li>`+(hintIdx?`<li class="hints-li"><span class="k">?</span><span>${cons.hints.slice(0,hintIdx).map((h,i)=>`<b>Pista ${i+1}.</b> ${esc(h)}`).join('<br>')}</span></li>`:'');
+    hb.hidden=finished||hintIdx>=cons.hints.length;hb.textContent=hintIdx?'Otra pista':'Necesito una pista';ht.hidden=true;
+    document.querySelectorAll('.tool').forEach(b=>b.classList.remove('suggest'));
+  }else{
+    title.textContent='Retos creativos';hb.hidden=true;ht.hidden=true;
+    ol.innerHTML=RETOS.map((r,i)=>`<li class="reto"><span class="k">${i+1}</span><span><b>${esc(r.t)}.</b> ${esc(r.d)}<details><summary>Una idea</summary><p>${esc(r.i)}</p></details></span></li>`).join('');
+    document.querySelectorAll('.tool').forEach(b=>b.classList.remove('suggest'));
+  }
+  dm.hidden=!finished;if(finished){dm.innerHTML=cons.done+thinkHTML();markLab();}
   setStatus();draw();renderAlgebra();}
-document.getElementById('hint-btn').addEventListener('click',()=>{const cur=evalSteps();const s=cons.steps[cur];if(!s)return;hintStep=cur;const ht=document.getElementById('hint-txt');ht.textContent=s.hint;ht.hidden=false;});
+document.getElementById('hint-btn').addEventListener('click',()=>{if(cons.group==='desafio'){hintIdx=Math.min(cons.hints.length,hintIdx+1);refreshLab();return;}const cur=evalSteps();const s=cons.steps[cur];if(!s)return;hintStep=cur;const ht=document.getElementById('hint-txt');ht.textContent=s.hint;ht.hidden=false;});
 const _setTool=setTool;setTool=function(t){_setTool(t);if(cons)document.querySelectorAll('.tool').forEach(b=>{const cur=evalSteps();b.classList.toggle('suggest',cons.steps.length>0&&cur<cons.steps.length&&b.dataset.tool===cons.steps[cur].tool&&t!==b.dataset.tool);});};
 
-const cdia=CONS[dayNum%(CONS.length-1)];
+const CDAY=CONS.filter(c=>c.group!=='taller');const cdia=CDAY[dayNum%CDAY.length];
 document.getElementById('hoy-cons').innerHTML=`<span class="eyebrow">Construcción del día</span><h3>${esc(cdia.t)}</h3><p>${esc(cdia.que)}</p><button class="btn small" id="go-cons">Abrir en el laboratorio</button>`;
 document.getElementById('go-cons').addEventListener('click',()=>{loadCons(cdia.id);show('laboratorio');});
 
